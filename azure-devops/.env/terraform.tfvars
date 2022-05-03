@@ -1,7 +1,5 @@
-dev_subscription_name  = "DEV-PRODUCT"
-uat_subscription_name  = "UAT-PRODUCT"
-prod_subscription_name = "PROD-PRODUCT"
+# dev_subscription_name  = "DEV-IO"
+# uat_subscription_name  = "UAT-IO"
+prod_subscription_name = "PROD-IO"
 
-project_name_prefix = "product"
-
-pipeline_environments = ["DEV", "UAT", "PROD"]
+project_name_prefix = "io"
