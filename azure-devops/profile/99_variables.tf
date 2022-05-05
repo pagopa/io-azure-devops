@@ -22,7 +22,6 @@ locals {
   prefix           = "io"
   azure_devops_org = "pagopaspa"
   domain           = "profile"
-  le_email         = "letsencrypt-bots@pagopa.it"
 
   # 🔐 KV
   # dev_key_vault_azdo_name  = "${local.prefix}-d-azdo-weu-kv"
@@ -47,9 +46,13 @@ locals {
   prod_dns_zone_resource_group = "${local.prefix}-p-rg-external"
 
   # 📦 ACR PROD DOCKER
-  srv_endpoint_name_docker_registry_prod = "${local.prefix}-${local.domain}-acr-docker-registry-prod"
+  srv_endpoint_name_docker_registry_prod = "${local.prefix}-p-${local.domain}-acr-docker-registry-prod"
   docker_registry_rg_name_prod           = "${local.prefix}-p-container-registry-rg"
   docker_registry_name_prod              = "${local.prefix}pcommonacr"
+
+  srv_endpoint_name_aks_weu_beta_prod   = "${local.prefix}-aks-weu-beta"
+  srv_endpoint_name_aks_weu_prod01_prod = "${local.prefix}-aks-weu-prod01"
+  srv_endpoint_name_aks_weu_prod02_prod = "${local.prefix}-aks-weu-prod02"
 
   #tfsec:ignore:general-secrets-no-plaintext-exposure
   #tfsec:ignore:GEN002

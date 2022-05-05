@@ -24,9 +24,9 @@ variable "tlscert-prod-weuprod01-profile-internal-io-pagopa-it" {
 
 locals {
   tlscert-prod-weuprod01-profile-internal-io-pagopa-it = {
-    tenant_id                           = module.secrets.values["TENANTID"].value
+    tenant_id                           = module.secrets_azdo.values["TENANTID"].value
     subscription_name                   = var.prod_subscription_name
-    subscription_id                     = module.secrets.values["PROD-SUBSCRIPTION-ID"].value
+    subscription_id                     = module.secrets_azdo.values["PROD-SUBSCRIPTION-ID"].value
     dns_zone_resource_group             = local.prod_dns_zone_resource_group
     credential_subcription              = var.prod_subscription_name
     credential_key_vault_name           = local.prod_key_vault_name

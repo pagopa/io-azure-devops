@@ -24,9 +24,9 @@ variable "tlscert-prod-weubeta-profile-internal-io-pagopa-it" {
 
 locals {
   tlscert-prod-weubeta-profile-internal-io-pagopa-it = {
-    tenant_id                           = module.secrets.values["TENANTID"].value
+    tenant_id                           = module.secrets_azdo.values["TENANTID"].value
     subscription_name                   = var.prod_subscription_name
-    subscription_id                     = module.secrets.values["PROD-SUBSCRIPTION-ID"].value
+    subscription_id                     = module.secrets_azdo.values["PROD-SUBSCRIPTION-ID"].value
     dns_zone_resource_group             = local.prod_dns_zone_resource_group
     credential_subcription              = var.prod_subscription_name
     credential_key_vault_name           = local.prod_key_vault_name
@@ -48,6 +48,8 @@ locals {
 module "tlscert-prod-weubeta-profile-internal-io-pagopa-it-cert_az" {
   source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert?ref=v2.0.5"
   count  = var.tlscert-prod-weubeta-profile-internal-io-pagopa-it.pipeline.enable_tls_cert == true ? 1 : 0
+
+  depends_on = [module.letsencrypt_prod]
 
   # change me
   providers = {
