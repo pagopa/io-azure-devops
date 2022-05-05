@@ -23,7 +23,7 @@ provider "azurerm" {
 #     }
 #   }
 #   alias           = "dev"
-#   subscription_id = module.secrets.values["DEV-SUBSCRIPTION-ID"].value
+#   subscription_id = module.secrets_azdo.values["DEV-SUBSCRIPTION-ID"].value
 # }
 
 # provider "azurerm" {
@@ -33,7 +33,7 @@ provider "azurerm" {
 #     }
 #   }
 #   alias           = "uat"
-#   subscription_id = module.secrets.values["UAT-SUBSCRIPTION-ID"].value
+#   subscription_id = module.secrets_azdo.values["UAT-SUBSCRIPTION-ID"].value
 # }
 
 provider "azurerm" {
@@ -43,5 +43,5 @@ provider "azurerm" {
     }
   }
   alias           = "prod"
-  subscription_id = module.secrets.values["PROD-SUBSCRIPTION-ID"].value
+  subscription_id = module.secrets_azdo.values["PROD-SUBSCRIPTION-ID"].value
 }
