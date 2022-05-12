@@ -21,7 +21,7 @@ variable "project_name_prefix" {
 locals {
   prefix           = "io"
   azure_devops_org = "pagopaspa"
-  domain           = "profile"
+  domain           = "messages"
 
   # 🔐 KV
   # dev_key_vault_azdo_name  = "${local.prefix}-d-azdo-weu-kv"
