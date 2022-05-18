@@ -1,4 +1,8 @@
-# your-project-name
+# Experimental
+
+This repo is a work in progress, at the moment if you need to create a new pipeline please continue to use https://github.com/pagopa/gitops.
+
+# IO
 
 This repo template allows you to create a repo for your project pipelines
 
