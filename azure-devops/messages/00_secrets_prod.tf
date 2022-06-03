@@ -10,6 +10,7 @@ module "secrets_azdo" {
     "azure-devops-github-rw-TOKEN",
     "azure-devops-github-EMAIL",
     "azure-devops-github-USERNAME",
+    "DANGER-GITHUB-API-TOKEN",
     "TENANTID",
     # "DEV-SUBSCRIPTION-ID",
     # "UAT-SUBSCRIPTION-ID",
