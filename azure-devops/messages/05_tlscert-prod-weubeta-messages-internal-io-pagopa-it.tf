@@ -46,7 +46,7 @@ locals {
 # change only providers
 #tfsec:ignore:general-secrets-no-plaintext-exposure
 module "tlscert-prod-weubeta-messages-internal-io-pagopa-it-cert_az" {
-  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert?ref=v2.0.5"
+  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert?ref=v2.4.0"
   count  = var.tlscert-prod-weubeta-messages-internal-io-pagopa-it.pipeline.enable_tls_cert == true ? 1 : 0
 
   depends_on = [module.letsencrypt_prod]
@@ -89,10 +89,10 @@ module "tlscert-prod-weubeta-messages-internal-io-pagopa-it-cert_az" {
   service_connection_ids_authorization = local.tlscert-prod-weubeta-messages-internal-io-pagopa-it.service_connection_ids_authorization
 
   schedules = {
-    days_to_build              = ["Mon"]
+    days_to_build              = ["Wed"]
     schedule_only_with_changes = false
-    start_hours                = 3
-    start_minutes              = 0
+    start_hours                = 18
+    start_minutes              = 00
     time_zone                  = "(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna"
     branch_filter = {
       include = [var.tlscert-prod-weubeta-messages-internal-io-pagopa-it.repository.branch_name]

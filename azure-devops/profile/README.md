@@ -5,15 +5,15 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.1.5 |
-| <a name="requirement_azuredevops"></a> [azuredevops](#requirement\_azuredevops) | >= 0.2.0 |
+| <a name="requirement_azuredevops"></a> [azuredevops](#requirement\_azuredevops) | >= 0.2.1 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >= 2.99.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azuredevops"></a> [azuredevops](#provider\_azuredevops) | 0.2.1 |
-| <a name="provider_azurerm.prod"></a> [azurerm.prod](#provider\_azurerm.prod) | 3.4.0 |
+| <a name="provider_azuredevops"></a> [azuredevops](#provider\_azuredevops) | 0.2.2 |
+| <a name="provider_azurerm.prod"></a> [azurerm.prod](#provider\_azurerm.prod) | 2.99.0 |
 
 ## Modules
 
@@ -23,8 +23,8 @@
 | <a name="module_letsencrypt_prod"></a> [letsencrypt\_prod](#module\_letsencrypt\_prod) | git::https://github.com/pagopa/azurerm.git//letsencrypt_credential | v2.14.0 |
 | <a name="module_secrets_azdo"></a> [secrets\_azdo](#module\_secrets\_azdo) | git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query | v2.0.5 |
 | <a name="module_secrets_prod"></a> [secrets\_prod](#module\_secrets\_prod) | git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query | v2.0.5 |
-| <a name="module_tlscert-prod-weubeta-profile-internal-io-pagopa-it-cert_az"></a> [tlscert-prod-weubeta-profile-internal-io-pagopa-it-cert\_az](#module\_tlscert-prod-weubeta-profile-internal-io-pagopa-it-cert\_az) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert | v2.0.5 |
-| <a name="module_tlscert-prod-weuprod01-profile-internal-io-pagopa-it-cert_az"></a> [tlscert-prod-weuprod01-profile-internal-io-pagopa-it-cert\_az](#module\_tlscert-prod-weuprod01-profile-internal-io-pagopa-it-cert\_az) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert | v2.0.5 |
+| <a name="module_tlscert-prod-weubeta-profile-internal-io-pagopa-it-cert_az"></a> [tlscert-prod-weubeta-profile-internal-io-pagopa-it-cert\_az](#module\_tlscert-prod-weubeta-profile-internal-io-pagopa-it-cert\_az) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert | v2.4.0 |
+| <a name="module_tlscert-prod-weuprod01-profile-internal-io-pagopa-it-cert_az"></a> [tlscert-prod-weuprod01-profile-internal-io-pagopa-it-cert\_az](#module\_tlscert-prod-weuprod01-profile-internal-io-pagopa-it-cert\_az) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert | v2.4.0 |
 
 ## Resources
 
