@@ -3,7 +3,7 @@ variable "tlscert-prod-weuprod01-payments-internal-io-pagopa-it" {
     repository = {
       organization   = "pagopa"
       name           = "le-azure-acme-tiny"
-      branch_name    = "master"
+      branch_name    = "refs/heads/master"
       pipelines_path = "."
     }
     pipeline = {
@@ -93,7 +93,7 @@ module "tlscert-prod-weuprod01-payments-internal-io-pagopa-it-cert_az" {
     start_minutes              = 00
     time_zone                  = "(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna"
     branch_filter = {
-      include = [var.tlscert-prod-weuprod01-payments-internal-io-pagopa-it.repository.branch_name]
+      include = ["master"]
       exclude = []
     }
   }
