@@ -49,6 +49,7 @@ locals {
   srv_endpoint_name_docker_registry_prod = "${local.prefix}-p-${local.domain}-acr-docker-registry-prod"
   docker_registry_rg_name_prod           = "${local.prefix}-p-container-registry-rg"
   docker_registry_name_prod              = "${local.prefix}pcommonacr"
+  docker_registry_fqdn_prod              = "${local.docker_registry_name_prod}.azurecr.io"
 
   srv_endpoint_name_aks_weu_beta_prod   = "${local.prefix}-${local.domain}-aks-weu-beta"
   srv_endpoint_name_aks_weu_prod01_prod = "${local.prefix}-${local.domain}-aks-weu-prod01"
