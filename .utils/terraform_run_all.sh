@@ -18,6 +18,8 @@ array=(
     'messages'
     'payments'
     'profile'
+    'app-projects'
+    'iac-projects'
 )
 
 function rm_terraform {
