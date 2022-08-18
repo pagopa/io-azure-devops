@@ -3,3 +3,5 @@
 prod_subscription_name = "PROD-IO"
 
 project_name_prefix = "io-backend"
+
+iac-project-name = "io-platform-iac-project"
