@@ -38,9 +38,9 @@ module "iac_code_review" {
   count  = var.core_iac.pipeline.enable_code_review == true ? 1 : 0
   path   = var.core_iac.pipeline.path
 
-  project_id                   = data.data.azuredevops_project.project.id
+  project_id                   = data.azuredevops_project.project.id
   repository                   = var.core_iac.repository
-  github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-rw.id
+  github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-pr.id
 
   pipeline_name_prefix = var.core_iac.pipeline.pipeline_name_prefix
 
@@ -70,9 +70,9 @@ module "iac_deploy" {
   count  = var.core_iac.pipeline.enable_deploy == true ? 1 : 0
   path   = var.core_iac.pipeline.path
 
-  project_id                   = data.data.azuredevops_project.project.id
+  project_id                   = data.azuredevops_project.project.id
   repository                   = var.core_iac.repository
-  github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-rw.id
+  github_service_connection_id = azuredevops_serviceendpoint_github.io-azure-devops-github-pr.id
 
   pipeline_name_prefix = var.core_iac.pipeline.pipeline_name_prefix
 

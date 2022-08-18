@@ -1,4 +1,7 @@
-
+variable "iac-project-name" {
+  type = string
+  description = "Name of the project on AZDO"
+}
 
 locals {
   project_prefix_short = "io"
