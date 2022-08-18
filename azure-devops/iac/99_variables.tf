@@ -1,37 +1,4 @@
-variable "dev_subscription_name" {
-  type        = string
-  description = "DEV Subscription name"
-}
 
-variable "uat_subscription_name" {
-  type        = string
-  description = "UAT Subscription name"
-}
-
-variable "prod_subscription_name" {
-  type        = string
-  description = "PROD Subscription name"
-}
-
-variable "project_iac_name" {
-  type        = string
-  description = "Project name for IaC projects"
-}
-
-variable "aks_dev_platform_name" {
-  type        = string
-  description = "AKS DEV platform name"
-}
-
-variable "aks_uat_platform_name" {
-  type        = string
-  description = "AKS UAT platform name"
-}
-
-variable "aks_prod_platform_name" {
-  type        = string
-  description = "AKS PROD platform name"
-}
 
 locals {
   project_prefix_short = "io"
@@ -42,7 +9,7 @@ locals {
 
   # 🔐 KV AZDO
   prod_key_vault_resource_group = "io-p-rg-operations"
-  prod_key_vault_azdo_name = "io-p-kv-azuredevops"
+  prod_key_vault_azdo_name      = "io-p-kv-azuredevops"
 
   # 🔐 KV Domain
   dev_idpay_key_vault_resource_group  = "${local.prefix}-d-idpay-sec-rg"

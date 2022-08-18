@@ -42,7 +42,7 @@ az account set -s "${subscription}"
 
 if echo "init plan apply refresh import output state taint destroy" | grep -w "$ACTION" > /dev/null; then
   if [ "$ACTION" = "init" ]; then
-    echo "[INFO] init tf"
+    echo "[INFO] init tf on folder $(pwd)"
     terraform "$ACTION" -backend-config="${BACKEND_CONFIG_PATH}" $other
   elif [ "$ACTION" = "output" ] || [ "$ACTION" = "state" ] || [ "$ACTION" = "taint" ]; then
     # init terraform backend
@@ -50,7 +50,7 @@ if echo "init plan apply refresh import output state taint destroy" | grep -w "$
     terraform "$ACTION" $other
   else
     # init terraform backend
-    echo "[INFO] init tf"
+    echo "[INFO] init tf on folder $(pwd)"
     terraform init -reconfigure -backend-config="${BACKEND_CONFIG_PATH}"
 
     echo "[INFO] run tf with: ${ACTION} and other: >${other}<"
