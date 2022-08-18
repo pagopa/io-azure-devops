@@ -5,7 +5,7 @@ variable "core_iac" {
       name            = "io-infra"
       branch_name     = "main"
       pipelines_path  = ".devops"
-      yml_prefix_name = "core"
+      yml_prefix_name = null
     }
     pipeline = {
       enable_code_review   = true
