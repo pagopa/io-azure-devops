@@ -3,7 +3,7 @@ variable "devops-test-cicd-k8s" {
     repository = {
       organization    = "pagopa"
       name            = "devops-test-cicd-k8s"
-      branch_name     = "master"
+      branch_name     = "refs/heads/master"
       pipelines_path  = ".devops"
       yml_prefix_name = null
     }
@@ -44,6 +44,8 @@ locals {
     TF_KUBERNETES_SERVICE_CONN_WEU_BETA     = local.srv_endpoint_name_aks_weu_beta_prod
     TF_KUBERNETES_SERVICE_CONN_WEU_PROD_01  = local.srv_endpoint_name_aks_weu_prod01_prod
     TF_KUBERNETES_SERVICE_CONN_WEU_PROD_02  = local.srv_endpoint_name_aks_weu_prod02_prod
+    TF_APPINSIGHTS_SERVICE_CONN_PROD        = module.PROD-APPINSIGHTS-SERVICE-CONN.service_endpoint_name
+    TF_APPINSIGHTS_RESOURCE_ID_PROD         = data.azurerm_application_insights.application_insights_prod.id
     git_email                               = module.secrets_azdo.values["azure-devops-github-EMAIL"].value
     git_username                            = module.secrets_azdo.values["azure-devops-github-USERNAME"].value
     github_connection                       = azuredevops_serviceendpoint_github.azure-devops-github-rw.service_endpoint_name
@@ -107,5 +109,6 @@ module "devops-test-cicd-k8s_deploy" {
     azuredevops_serviceendpoint_kubernetes.aks-weu-beta.id,
     azuredevops_serviceendpoint_kubernetes.aks-weu-prod01.id,
     # azuredevops_serviceendpoint_kubernetes.aks-weu-prod02.id,
+    module.PROD-APPINSIGHTS-SERVICE-CONN.service_endpoint_id,
   ]
 }
