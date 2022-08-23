@@ -33,7 +33,7 @@ locals {
   iac-variables_secret_deploy = {}
 }
 
-module "iac_code_review" {
+module "core_iac_code_review" {
   source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review?ref=v2.6.2"
   count  = var.core_iac.pipeline.enable_code_review == true ? 1 : 0
   path   = var.core_iac.pipeline.path
@@ -59,13 +59,10 @@ module "iac_code_review" {
   service_connection_ids_authorization = [
     azuredevops_serviceendpoint_github.io-azure-devops-github-ro.id,
     azuredevops_serviceendpoint_azurerm.PROD-IO.id,
-    azuredevops_serviceendpoint_azurerm.PROD-IO-SIGN.id,
-    azuredevops_serviceendpoint_azurerm.PROD-IO-REMINDER.id,
-    azuredevops_serviceendpoint_azurerm.PROD-IO-AKS-PLATFORM.id,
   ]
 }
 
-module "iac_deploy" {
+module "core_iac_deploy" {
   source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy?ref=v2.6.2"
   count  = var.core_iac.pipeline.enable_deploy == true ? 1 : 0
   path   = var.core_iac.pipeline.path
@@ -92,6 +89,5 @@ module "iac_deploy" {
   service_connection_ids_authorization = [
     azuredevops_serviceendpoint_github.io-azure-devops-github-ro.id,
     azuredevops_serviceendpoint_azurerm.PROD-IO.id,
-    azuredevops_serviceendpoint_azurerm.PROD-IO-AKS-PLATFORM.id,
   ]
 }
