@@ -58,4 +58,14 @@ locals {
   #tfsec:ignore:general-secrets-no-plaintext-exposure
   #tfsec:ignore:GEN002
   tlscert_renew_token = "v1"
+
+  appinsights_renew_token = "v1"
+
+  # dev_appinsights_name           = "${local.prefix}-d-ai-common"
+  # uat_appinsights_name           = "${local.prefix}-u-ai-common"
+  prod_appinsights_name = "${local.prefix}-p-ai-common"
+
+  # dev_appinsights_resource_group = "${local.prefix}-d-rg-common"
+  # uat_appinsights_resource_group = "${local.prefix}-u-rg-common"
+  prod_appinsights_resource_group = "${local.prefix}-p-rg-common"
 }
