@@ -5,7 +5,7 @@ variable "core_iac" {
       name            = "io-infra"
       branch_name     = "main"
       pipelines_path  = ".devops"
-      yml_prefix_name = null
+      yml_prefix_name = "core"
     }
     pipeline = {
       enable_code_review   = true
@@ -61,7 +61,7 @@ module "iac_code_review" {
     azuredevops_serviceendpoint_azurerm.PROD-IO.id,
     azuredevops_serviceendpoint_azurerm.PROD-IO-SIGN.id,
     azuredevops_serviceendpoint_azurerm.PROD-IO-REMINDER.id,
-    azuredevops_serviceendpoint_azurerm.PROD-IO-AKS.id,
+    azuredevops_serviceendpoint_azurerm.PROD-IO-AKS-PLATFORM.id,
   ]
 }
 
@@ -92,8 +92,6 @@ module "iac_deploy" {
   service_connection_ids_authorization = [
     azuredevops_serviceendpoint_github.io-azure-devops-github-ro.id,
     azuredevops_serviceendpoint_azurerm.PROD-IO.id,
-    azuredevops_serviceendpoint_azurerm.PROD-IO-SIGN.id,
-    azuredevops_serviceendpoint_azurerm.PROD-IO-REMINDER.id,
-    azuredevops_serviceendpoint_azurerm.PROD-IO-AKS.id,
+    azuredevops_serviceendpoint_azurerm.PROD-IO-AKS-PLATFORM.id,
   ]
 }
