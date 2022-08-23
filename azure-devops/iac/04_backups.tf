@@ -5,7 +5,7 @@ variable "apim_backup" {
       name            = "io-infra"
       branch_name     = "main"
       pipelines_path  = ".devops"
-      yml_prefix_name = "backupa-apim"
+      yml_prefix_name = "backup-apim"
     }
   }
 }
