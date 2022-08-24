@@ -3,6 +3,16 @@ variable "iac-project-name" {
   description = "Name of the project on AZDO"
 }
 
+variable "aks_platform_beta_prod_name" {
+  type        = string
+  description = "Name of the aks plarfom BETA"
+}
+
+variable "aks_platform_prod01_prod_name" {
+  type        = string
+  description = "Name of the aks plarfom PROD01"
+}
+
 locals {
   project_prefix_short = "io"
   azure_devops_org     = "pagopaspa"
@@ -15,20 +25,12 @@ locals {
   prod_key_vault_azdo_name      = "io-p-kv-azuredevops"
 
   # 🔐 KV Domain
-  dev_idpay_key_vault_resource_group  = "${local.prefix}-d-idpay-sec-rg"
-  uat_idpay_key_vault_resource_group  = "${local.prefix}-u-idpay-sec-rg"
-  prod_idpay_key_vault_resource_group = "${local.prefix}-p-idpay-sec-rg"
+  dev_messages_key_vault_resource_group  = "${local.prefix}-d-messages-sec-rg"
+  uat_messages_key_vault_resource_group  = "${local.prefix}-u-messages-sec-rg"
+  prod_messages_key_vault_resource_group = "${local.prefix}-p-messages-sec-rg"
 
-  dev_idpay_key_vault_name  = "${local.prefix}-d-idpay-kv"
-  uat_idpay_key_vault_name  = "${local.prefix}-u-idpay-kv"
-  prod_idpay_key_vault_name = "${local.prefix}-p-idpay-kv"
+  dev_messages_key_vault_name  = "${local.prefix}-d-messages-kv"
+  uat_messages_key_vault_name  = "${local.prefix}-u-messages-kv"
+  prod_messages_key_vault_name = "${local.prefix}-p-messages-kv"
 
-  # 🔐 KV Domain
-  dev_rtd_key_vault_resource_group  = "${local.prefix}-d-rtd-sec-rg"
-  uat_rtd_key_vault_resource_group  = "${local.prefix}-u-rtd-sec-rg"
-  prod_rtd_key_vault_resource_group = "${local.prefix}-p-rtd-sec-rg"
-
-  dev_rtd_key_vault_name  = "${local.prefix}-d-rtd-kv"
-  uat_rtd_key_vault_name  = "${local.prefix}-u-rtd-kv"
-  prod_rtd_key_vault_name = "${local.prefix}-p-rtd-kv"
 }
