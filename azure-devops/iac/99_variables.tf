@@ -24,13 +24,14 @@ locals {
   prod_key_vault_resource_group = "io-p-rg-operations"
   prod_key_vault_azdo_name      = "io-p-kv-azuredevops"
 
-  # 🔐 KV Domain
-  dev_messages_key_vault_resource_group  = "${local.prefix}-d-messages-sec-rg"
-  uat_messages_key_vault_resource_group  = "${local.prefix}-u-messages-sec-rg"
+  # 🔐 KV Messages
   prod_messages_key_vault_resource_group = "${local.prefix}-p-messages-sec-rg"
 
-  dev_messages_key_vault_name  = "${local.prefix}-d-messages-kv"
-  uat_messages_key_vault_name  = "${local.prefix}-u-messages-kv"
   prod_messages_key_vault_name = "${local.prefix}-p-messages-kv"
+
+  # 🔐 KV Payments
+  prod_payments_key_vault_resource_group = "${local.prefix}-p-payments-sec-rg"
+
+  prod_payments_key_vault_name = "${local.prefix}-p-payments-kv"
 
 }
