@@ -15,10 +15,10 @@ jobs:
       - name: init_terraform_folders
         env:
           FOLDERS: >
-            azure-devios/iac
-            azure-devios/messages
-            azure-devios/payments
-            azure-devios/profile
+            azure-devops/iac
+            azure-devops/messages
+            azure-devops/payments
+            azure-devops/profile
         run: |
           pids=()
 
