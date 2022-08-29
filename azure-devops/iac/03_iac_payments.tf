@@ -1,4 +1,3 @@
-
 variable "payments_iac" {
   default = {
     repository = {
