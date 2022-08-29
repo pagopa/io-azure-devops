@@ -2,7 +2,7 @@
 # PROD ECOMMERCE KEYVAULT
 #
 
-module "profiles_prod_secrets" {
+module "profile_prod_secrets" {
 
   providers = {
     azurerm = azurerm.prod
@@ -10,8 +10,8 @@ module "profiles_prod_secrets" {
 
   source = "git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query?ref=v2.18.9"
 
-  resource_group = local.prod_profiles_key_vault_resource_group
-  key_vault_name = local.prod_profiles_key_vault_name
+  resource_group = local.prod_profile_key_vault_resource_group
+  key_vault_name = local.prod_profile_key_vault_name
 
   secrets = [
     "io-p-weu-beta-aks-apiserver-url",

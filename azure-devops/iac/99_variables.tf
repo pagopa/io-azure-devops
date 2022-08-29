@@ -35,8 +35,8 @@ locals {
   prod_payments_key_vault_name = "${local.prefix}-p-payments-kv"
 
   # 🔐 KV Payments
-  prod_profiles_key_vault_resource_group =  "${local.prefix}-p-profile-sec-rg"
+  prod_profile_key_vault_resource_group = "${local.prefix}-p-profile-sec-rg"
 
-  prod_profiles_key_vault_name =            "${local.prefix}-p-profile-kv"
+  prod_profile_key_vault_name = "${local.prefix}-p-profile-kv"
 
 }

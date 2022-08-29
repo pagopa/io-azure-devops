@@ -27,6 +27,9 @@
 | <a name="module_payments_iac_code_review"></a> [payments\_iac\_code\_review](#module\_payments\_iac\_code\_review) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review | v2.6.2 |
 | <a name="module_payments_iac_deploy"></a> [payments\_iac\_deploy](#module\_payments\_iac\_deploy) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy | v2.6.2 |
 | <a name="module_payments_prod_secrets"></a> [payments\_prod\_secrets](#module\_payments\_prod\_secrets) | git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query | v2.18.9 |
+| <a name="module_profile_iac_code_review"></a> [profile\_iac\_code\_review](#module\_profile\_iac\_code\_review) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review | v2.6.2 |
+| <a name="module_profile_iac_deploy"></a> [profile\_iac\_deploy](#module\_profile\_iac\_deploy) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy | v2.6.2 |
+| <a name="module_profile_prod_secrets"></a> [profile\_prod\_secrets](#module\_profile\_prod\_secrets) | git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query | v2.18.9 |
 | <a name="module_secret_azdo"></a> [secret\_azdo](#module\_secret\_azdo) | git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query | v2.4.0 |
 
 ## Resources
@@ -50,6 +53,7 @@
 | <a name="input_iac-project-name"></a> [iac-project-name](#input\_iac-project-name) | Name of the project on AZDO | `string` | n/a | yes |
 | <a name="input_messages_iac"></a> [messages\_iac](#input\_messages\_iac) | n/a | `map` | <pre>{<br>  "pipeline": {<br>    "enable_code_review": true,<br>    "enable_deploy": true,<br>    "path": "messages-infrastructure",<br>    "pipeline_name_prefix": "messages-infra"<br>  },<br>  "repository": {<br>    "branch_name": "refs/heads/main",<br>    "name": "io-infra",<br>    "organization": "pagopa",<br>    "pipelines_path": ".devops",<br>    "yml_prefix_name": "messages"<br>  }<br>}</pre> | no |
 | <a name="input_payments_iac"></a> [payments\_iac](#input\_payments\_iac) | n/a | `map` | <pre>{<br>  "pipeline": {<br>    "enable_code_review": true,<br>    "enable_deploy": true,<br>    "path": "payments-infrastructure",<br>    "pipeline_name_prefix": "payments-infra"<br>  },<br>  "repository": {<br>    "branch_name": "refs/heads/main",<br>    "name": "io-infra",<br>    "organization": "pagopa",<br>    "pipelines_path": ".devops",<br>    "yml_prefix_name": "payments"<br>  }<br>}</pre> | no |
+| <a name="input_profile_iac"></a> [profile\_iac](#input\_profile\_iac) | n/a | `map` | <pre>{<br>  "pipeline": {<br>    "enable_code_review": true,<br>    "enable_deploy": true,<br>    "path": "profile-infrastructure",<br>    "pipeline_name_prefix": "profile-infra"<br>  },<br>  "repository": {<br>    "branch_name": "refs/heads/main",<br>    "name": "io-infra",<br>    "organization": "pagopa",<br>    "pipelines_path": ".devops",<br>    "yml_prefix_name": "profile"<br>  }<br>}</pre> | no |
 
 ## Outputs
 
