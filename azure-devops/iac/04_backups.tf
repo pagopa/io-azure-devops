@@ -3,7 +3,7 @@ variable "apim_backup" {
     repository = {
       organization    = "pagopa"
       name            = "io-infra"
-      branch_name     = "main"
+      branch_name     = "refs/heads/main"
       pipelines_path  = ".devops"
       yml_prefix_name = "backup-apim"
     }

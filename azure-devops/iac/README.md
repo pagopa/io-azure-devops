@@ -31,6 +31,8 @@
 | <a name="module_profile_iac_deploy"></a> [profile\_iac\_deploy](#module\_profile\_iac\_deploy) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy | v2.6.2 |
 | <a name="module_profile_prod_secrets"></a> [profile\_prod\_secrets](#module\_profile\_prod\_secrets) | git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query | v2.18.9 |
 | <a name="module_secret_azdo"></a> [secret\_azdo](#module\_secret\_azdo) | git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query | v2.4.0 |
+| <a name="module_sign_iac_code_review"></a> [sign\_iac\_code\_review](#module\_sign\_iac\_code\_review) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review | v2.6.2 |
+| <a name="module_sign_iac_deploy"></a> [sign\_iac\_deploy](#module\_sign\_iac\_deploy) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy | v2.6.2 |
 
 ## Resources
 
@@ -48,12 +50,13 @@
 |------|-------------|------|---------|:--------:|
 | <a name="input_aks_platform_beta_prod_name"></a> [aks\_platform\_beta\_prod\_name](#input\_aks\_platform\_beta\_prod\_name) | Name of the aks plarfom BETA | `string` | n/a | yes |
 | <a name="input_aks_platform_prod01_prod_name"></a> [aks\_platform\_prod01\_prod\_name](#input\_aks\_platform\_prod01\_prod\_name) | Name of the aks plarfom PROD01 | `string` | n/a | yes |
-| <a name="input_apim_backup"></a> [apim\_backup](#input\_apim\_backup) | n/a | `map` | <pre>{<br>  "repository": {<br>    "branch_name": "main",<br>    "name": "io-infra",<br>    "organization": "pagopa",<br>    "pipelines_path": ".devops",<br>    "yml_prefix_name": "backup-apim"<br>  }<br>}</pre> | no |
+| <a name="input_apim_backup"></a> [apim\_backup](#input\_apim\_backup) | n/a | `map` | <pre>{<br>  "repository": {<br>    "branch_name": "refs/heads/main",<br>    "name": "io-infra",<br>    "organization": "pagopa",<br>    "pipelines_path": ".devops",<br>    "yml_prefix_name": "backup-apim"<br>  }<br>}</pre> | no |
 | <a name="input_core_iac"></a> [core\_iac](#input\_core\_iac) | n/a | `map` | <pre>{<br>  "pipeline": {<br>    "enable_code_review": true,<br>    "enable_deploy": true,<br>    "path": "core-infrastructure",<br>    "pipeline_name_prefix": "core-infra"<br>  },<br>  "repository": {<br>    "branch_name": "refs/heads/main",<br>    "name": "io-infra",<br>    "organization": "pagopa",<br>    "pipelines_path": ".devops",<br>    "yml_prefix_name": "core"<br>  }<br>}</pre> | no |
 | <a name="input_iac-project-name"></a> [iac-project-name](#input\_iac-project-name) | Name of the project on AZDO | `string` | n/a | yes |
 | <a name="input_messages_iac"></a> [messages\_iac](#input\_messages\_iac) | n/a | `map` | <pre>{<br>  "pipeline": {<br>    "enable_code_review": true,<br>    "enable_deploy": true,<br>    "path": "messages-infrastructure",<br>    "pipeline_name_prefix": "messages-infra"<br>  },<br>  "repository": {<br>    "branch_name": "refs/heads/main",<br>    "name": "io-infra",<br>    "organization": "pagopa",<br>    "pipelines_path": ".devops",<br>    "yml_prefix_name": "messages"<br>  }<br>}</pre> | no |
 | <a name="input_payments_iac"></a> [payments\_iac](#input\_payments\_iac) | n/a | `map` | <pre>{<br>  "pipeline": {<br>    "enable_code_review": true,<br>    "enable_deploy": true,<br>    "path": "payments-infrastructure",<br>    "pipeline_name_prefix": "payments-infra"<br>  },<br>  "repository": {<br>    "branch_name": "refs/heads/main",<br>    "name": "io-infra",<br>    "organization": "pagopa",<br>    "pipelines_path": ".devops",<br>    "yml_prefix_name": "payments"<br>  }<br>}</pre> | no |
 | <a name="input_profile_iac"></a> [profile\_iac](#input\_profile\_iac) | n/a | `map` | <pre>{<br>  "pipeline": {<br>    "enable_code_review": true,<br>    "enable_deploy": true,<br>    "path": "profile-infrastructure",<br>    "pipeline_name_prefix": "profile-infra"<br>  },<br>  "repository": {<br>    "branch_name": "refs/heads/main",<br>    "name": "io-infra",<br>    "organization": "pagopa",<br>    "pipelines_path": ".devops",<br>    "yml_prefix_name": "profile"<br>  }<br>}</pre> | no |
+| <a name="input_sign_iac"></a> [sign\_iac](#input\_sign\_iac) | n/a | `map` | <pre>{<br>  "pipeline": {<br>    "enable_code_review": true,<br>    "enable_deploy": true,<br>    "path": "sign-infrastructure",<br>    "pipeline_name_prefix": "sign-infra"<br>  },<br>  "repository": {<br>    "branch_name": "refs/heads/main",<br>    "name": "io-infra",<br>    "organization": "pagopa",<br>    "pipelines_path": ".devops",<br>    "yml_prefix_name": "sign"<br>  }<br>}</pre> | no |
 
 ## Outputs
 
