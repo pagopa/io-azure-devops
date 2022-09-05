@@ -3,7 +3,7 @@ variable "io-functions-service-messages" {
     repository = {
       organization    = "pagopa"
       name            = "io-functions-service-messages"
-      branch_name     = "master"
+      branch_name     = "refs/heads/master"
       pipelines_path  = ".devops"
       yml_prefix_name = null
     }
@@ -17,7 +17,7 @@ variable "io-functions-service-messages" {
 locals {
   # global vars
   io-functions-service-messages-variables = {
-    dockerfile = "Dockerfile"
+
   }
   # global secrets
   io-functions-service-messages-variables_secret = {
@@ -37,11 +37,18 @@ locals {
   }
   # deploy vars
   io-functions-service-messages-variables_deploy = {
-    k8s_image_repository_name = var.io-functions-service-messages.repository.name
-    deploy_namespace          = local.domain
-    git_email                 = module.secrets_azdo.values["azure-devops-github-EMAIL"].value
-    git_username              = module.secrets_azdo.values["azure-devops-github-USERNAME"].value
-    github_connection         = azuredevops_serviceendpoint_github.azure-devops-github-rw.service_endpoint_name
+    TF_NAMESPACE                            = local.domain
+    TF_DOCKER_IMAGE_NAME                    = var.io-functions-service-messages.repository.name
+    TF_CONTAINER_REGISTRY_FQDN_PROD         = local.docker_registry_fqdn_prod
+    TF_CONTAINER_REGISTRY_SERVICE_CONN_PROD = local.srv_endpoint_name_docker_registry_prod
+    TF_KUBERNETES_SERVICE_CONN_WEU_BETA     = local.srv_endpoint_name_aks_weu_beta_prod
+    TF_KUBERNETES_SERVICE_CONN_WEU_PROD_01  = local.srv_endpoint_name_aks_weu_prod01_prod
+    TF_KUBERNETES_SERVICE_CONN_WEU_PROD_02  = local.srv_endpoint_name_aks_weu_prod02_prod
+    TF_APPINSIGHTS_SERVICE_CONN_PROD        = module.PROD-APPINSIGHTS-SERVICE-CONN.service_endpoint_name
+    TF_APPINSIGHTS_RESOURCE_ID_PROD         = data.azurerm_application_insights.application_insights_prod.id
+    git_email                               = module.secrets_azdo.values["azure-devops-github-EMAIL"].value
+    git_username                            = module.secrets_azdo.values["azure-devops-github-USERNAME"].value
+    github_connection                       = azuredevops_serviceendpoint_github.azure-devops-github-rw.service_endpoint_name
   }
   # deploy secrets
   io-functions-service-messages-variables_secret_deploy = {
@@ -97,9 +104,11 @@ module "io-functions-service-messages_deploy" {
 
   service_connection_ids_authorization = [
     azuredevops_serviceendpoint_github.azure-devops-github-ro.id,
+    azuredevops_serviceendpoint_github.azure-devops-github-rw.id,
     azuredevops_serviceendpoint_azurecr.acr_docker_registry_prod.id,
     azuredevops_serviceendpoint_kubernetes.aks-weu-beta.id,
     azuredevops_serviceendpoint_kubernetes.aks-weu-prod01.id,
     # azuredevops_serviceendpoint_kubernetes.aks-weu-prod02.id,
+    module.PROD-APPINSIGHTS-SERVICE-CONN.service_endpoint_id,
   ]
 }
