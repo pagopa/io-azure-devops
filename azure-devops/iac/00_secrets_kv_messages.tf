@@ -8,7 +8,7 @@ module "messages_prod_secrets" {
     azurerm = azurerm.prod
   }
 
-  source = "git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query?ref=v2.18.9"
+  source = "git::https://github.com/pagopa/terraform-azurerm-v3.git//key_vault_secrets_query?ref=v6.20.0"
 
   resource_group = local.prod_messages_key_vault_resource_group
   key_vault_name = local.prod_messages_key_vault_name

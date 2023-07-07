@@ -3,7 +3,7 @@
 #
 #tfsec:ignore:GEN003
 module "PROD-TLS-CERT-SERVICE-CONN" {
-  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_azurerm_limited?ref=v2.0.5"
+  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_azurerm_limited?ref=v3.1.1"
   providers = {
     azurerm = azurerm.prod
   }
@@ -38,7 +38,7 @@ resource "azurerm_key_vault_access_policy" "PROD-TLS-CERT-SERVICE-CONN_kv_prod" 
 
 # create let's encrypt credential used to create SSL certificates
 module "letsencrypt_prod" {
-  source = "git::https://github.com/pagopa/azurerm.git//letsencrypt_credential?ref=v2.14.0"
+  source = "git::https://github.com/pagopa/terraform-azurerm-v3.git//letsencrypt_credential?ref=v6.20.0"
 
   prefix            = local.prefix
   env               = "p"
