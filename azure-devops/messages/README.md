@@ -6,30 +6,30 @@
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.1.5 |
 | <a name="requirement_azuredevops"></a> [azuredevops](#requirement\_azuredevops) | >= 0.2.1 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >= 2.99.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | <= 3.53.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azuredevops"></a> [azuredevops](#provider\_azuredevops) | 0.2.2 |
-| <a name="provider_azurerm.prod"></a> [azurerm.prod](#provider\_azurerm.prod) | 2.99.0 |
+| <a name="provider_azuredevops"></a> [azuredevops](#provider\_azuredevops) | 0.6.0 |
+| <a name="provider_azurerm.prod"></a> [azurerm.prod](#provider\_azurerm.prod) | 3.53.0 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_PROD-APPINSIGHTS-SERVICE-CONN"></a> [PROD-APPINSIGHTS-SERVICE-CONN](#module\_PROD-APPINSIGHTS-SERVICE-CONN) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_azurerm_limited | v2.0.5 |
-| <a name="module_PROD-TLS-CERT-SERVICE-CONN"></a> [PROD-TLS-CERT-SERVICE-CONN](#module\_PROD-TLS-CERT-SERVICE-CONN) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_azurerm_limited | v2.0.5 |
-| <a name="module_io-functions-service-messages_code_review"></a> [io-functions-service-messages\_code\_review](#module\_io-functions-service-messages\_code\_review) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review | v2.0.4 |
-| <a name="module_io-functions-service-messages_deploy"></a> [io-functions-service-messages\_deploy](#module\_io-functions-service-messages\_deploy) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy | v2.0.4 |
-| <a name="module_io-premium-reminder-ms_code_review"></a> [io-premium-reminder-ms\_code\_review](#module\_io-premium-reminder-ms\_code\_review) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review | v2.0.4 |
-| <a name="module_io-premium-reminder-ms_deploy"></a> [io-premium-reminder-ms\_deploy](#module\_io-premium-reminder-ms\_deploy) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy | v2.0.4 |
-| <a name="module_letsencrypt_prod"></a> [letsencrypt\_prod](#module\_letsencrypt\_prod) | git::https://github.com/pagopa/azurerm.git//letsencrypt_credential | v2.14.0 |
-| <a name="module_secrets_azdo"></a> [secrets\_azdo](#module\_secrets\_azdo) | git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query | v2.0.5 |
-| <a name="module_secrets_prod"></a> [secrets\_prod](#module\_secrets\_prod) | git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query | v2.0.5 |
-| <a name="module_tlscert-prod-weubeta-messages-internal-io-pagopa-it-cert_az"></a> [tlscert-prod-weubeta-messages-internal-io-pagopa-it-cert\_az](#module\_tlscert-prod-weubeta-messages-internal-io-pagopa-it-cert\_az) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert | v2.4.0 |
-| <a name="module_tlscert-prod-weuprod01-messages-internal-io-pagopa-it-cert_az"></a> [tlscert-prod-weuprod01-messages-internal-io-pagopa-it-cert\_az](#module\_tlscert-prod-weuprod01-messages-internal-io-pagopa-it-cert\_az) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert | v2.4.0 |
+| <a name="module_PROD-APPINSIGHTS-SERVICE-CONN"></a> [PROD-APPINSIGHTS-SERVICE-CONN](#module\_PROD-APPINSIGHTS-SERVICE-CONN) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_azurerm_limited | v3.1.1 |
+| <a name="module_PROD-TLS-CERT-SERVICE-CONN"></a> [PROD-TLS-CERT-SERVICE-CONN](#module\_PROD-TLS-CERT-SERVICE-CONN) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_azurerm_limited | v3.1.1 |
+| <a name="module_io-functions-service-messages_code_review"></a> [io-functions-service-messages\_code\_review](#module\_io-functions-service-messages\_code\_review) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review | v3.1.1 |
+| <a name="module_io-functions-service-messages_deploy"></a> [io-functions-service-messages\_deploy](#module\_io-functions-service-messages\_deploy) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy | v3.1.1 |
+| <a name="module_io-premium-reminder-ms_code_review"></a> [io-premium-reminder-ms\_code\_review](#module\_io-premium-reminder-ms\_code\_review) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review | v3.1.1 |
+| <a name="module_io-premium-reminder-ms_deploy"></a> [io-premium-reminder-ms\_deploy](#module\_io-premium-reminder-ms\_deploy) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy | v3.1.1 |
+| <a name="module_letsencrypt_prod"></a> [letsencrypt\_prod](#module\_letsencrypt\_prod) | git::https://github.com/pagopa/terraform-azurerm-v3.git//letsencrypt_credential | v6.20.0 |
+| <a name="module_secrets_azdo"></a> [secrets\_azdo](#module\_secrets\_azdo) | git::https://github.com/pagopa/terraform-azurerm-v3.git//key_vault_secrets_query | v6.20.0 |
+| <a name="module_secrets_prod"></a> [secrets\_prod](#module\_secrets\_prod) | git::https://github.com/pagopa/terraform-azurerm-v3.git//key_vault_secrets_query | v6.20.0 |
+| <a name="module_tlscert-prod-weubeta-messages-internal-io-pagopa-it-cert_az"></a> [tlscert-prod-weubeta-messages-internal-io-pagopa-it-cert\_az](#module\_tlscert-prod-weubeta-messages-internal-io-pagopa-it-cert\_az) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert | v3.1.1 |
+| <a name="module_tlscert-prod-weuprod01-messages-internal-io-pagopa-it-cert_az"></a> [tlscert-prod-weuprod01-messages-internal-io-pagopa-it-cert\_az](#module\_tlscert-prod-weuprod01-messages-internal-io-pagopa-it-cert\_az) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert | v3.1.1 |
 
 ## Resources
 

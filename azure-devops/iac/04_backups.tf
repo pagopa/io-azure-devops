@@ -11,7 +11,7 @@ variable "apim_backup" {
 }
 
 module "apim_backup" {
-  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy?ref=v2.6.2"
+  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy?ref=v3.1.1"
 
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.apim_backup.repository

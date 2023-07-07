@@ -6,7 +6,7 @@ terraform {
       version = ">= 0.2.2"
     }
     azurerm = {
-      version = "<= 2.99.0"
+      version = "<= 3.53.0"
     }
   }
   backend "azurerm" {}

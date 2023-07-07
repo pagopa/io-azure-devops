@@ -57,8 +57,9 @@ locals {
 }
 
 module "io-functions-service-messages_code_review" {
-  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review?ref=v2.0.4"
+  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review?ref=v3.1.1"
   count  = var.io-functions-service-messages.pipeline.enable_code_review == true ? 1 : 0
+  path   = var.io-functions-service-messages.repository.name
 
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.io-functions-service-messages.repository
@@ -83,8 +84,9 @@ module "io-functions-service-messages_code_review" {
 }
 
 module "io-functions-service-messages_deploy" {
-  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy?ref=v2.0.4"
+  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy?ref=v3.1.1"
   count  = var.io-functions-service-messages.pipeline.enable_deploy == true ? 1 : 0
+  path   = var.io-functions-service-messages.repository.name
 
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.io-functions-service-messages.repository

@@ -1,5 +1,5 @@
 module "secrets_azdo" {
-  source = "git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query?ref=v2.0.5"
+  source = "git::https://github.com/pagopa/terraform-azurerm-v3.git//key_vault_secrets_query?ref=v6.20.0"
 
   resource_group = local.prod_key_vault_azdo_resource_group
   key_vault_name = local.prod_key_vault_azdo_name
@@ -18,7 +18,7 @@ module "secrets_azdo" {
 }
 
 module "secrets_prod" {
-  source = "git::https://github.com/pagopa/azurerm.git//key_vault_secrets_query?ref=v2.0.5"
+  source = "git::https://github.com/pagopa/terraform-azurerm-v3.git//key_vault_secrets_query?ref=v6.20.0"
   providers = {
     azurerm = azurerm.prod
   }
