@@ -46,7 +46,7 @@ locals {
 # change only providers
 #tfsec:ignore:general-secrets-no-plaintext-exposure
 module "tlscert-prod-weubeta-messages-internal-io-pagopa-it-cert_az" {
-  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert?ref=v2.4.0"
+  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert?ref=v3.1.1"
   count  = var.tlscert-prod-weubeta-messages-internal-io-pagopa-it.pipeline.enable_tls_cert == true ? 1 : 0
 
   depends_on = [module.letsencrypt_prod]
