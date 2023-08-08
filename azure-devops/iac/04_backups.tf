@@ -23,7 +23,7 @@ module "apim_backup" {
   pull_request_trigger_use_yaml = true
 
   variables = {
-    apim_name                 = "io-p-apim-api"
+    apim_name                 = "io-p-apim-v2-api"
     apim_rg                   = "io-p-rg-internal"
     storage_account_name      = "iopstbackups"
     backup_name               = "apim-backup"
