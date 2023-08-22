@@ -24,9 +24,9 @@ variable "tlscert-prod-api-web-io-pagopa-it" {
 
 locals {
   tlscert-prod-api-web-io-pagopa-it = {
-    tenant_id                           = module.secret_azdo.values["TENANTID"].value
+    tenant_id                           = module.secrets_azdo.values["TENANTID"].value
     subscription_name                   = var.prod_subscription_name
-    subscription_id                     = module.secret_azdo.values["PROD-SUBSCRIPTION-ID"].value
+    subscription_id                     = module.secrets_azdo.values["PROD-SUBSCRIPTION-ID"].value
     dns_zone_resource_group             = local.prod_dns_zone_resource_group
     credential_subcription              = var.prod_subscription_name
     credential_key_vault_name           = local.prod_key_vault_name
@@ -56,7 +56,7 @@ module "tlscert-prod-api-web-io-pagopa-it-cert_az" {
     azurerm = azurerm.prod
   }
 
-  project_id = azuredevops_project.project.id
+  project_id = data.azuredevops_project.project.id
   repository = var.tlscert-prod-api-web-io-pagopa-it.repository
   name       = "${var.tlscert-prod-api-web-io-pagopa-it.pipeline.dns_record_name}.${var.tlscert-prod-api-web-io-pagopa-it.pipeline.dns_zone_name}"
   #tfsec:ignore:general-secrets-no-plaintext-exposure
