@@ -24,7 +24,7 @@ locals {
 
   # dev_key_vault_name  = "${local.prefix}-d-${local.domain}-kv"
   # uat_key_vault_name  = "${local.prefix}-u-${local.domain}-kv"
-  prod_key_vault_name = "${local.prefix}-p-kv"
+  prod_key_vault_name = "${local.prefix}-p-${local.domain}-kv"
 
   # dev_key_vault_resource_group  = "${local.prefix}-d-${local.domain}-sec-rg"
   # uat_key_vault_resource_group  = "${local.prefix}-u-${local.domain}-sec-rg"
