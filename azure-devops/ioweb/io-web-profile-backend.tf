@@ -34,7 +34,7 @@ locals {
   # deploy vars
   io-web-profile-backend-variables_deploy = {
     PROD_AZURE_SUBSCRIPTION  = var.prod_subscription_name
-    PROD_RESOURCE_GROUP_NAME = data.azurerm_resource_group.common_rg.name
+    PROD_RESOURCE_GROUP_NAME = "TOCHANGE"
     PROD_APP_NAME            = format("%s-p-%s-%s-profile-fn", local.prefix, local.location, local.domain)
     AGENT_POOL               = local.agent_pool
     git_email                = module.secrets_azdo.values["azure-devops-github-EMAIL"].value
@@ -52,7 +52,7 @@ module "io-web-profile-backend_code_review" {
   count  = var.io-web-profile-backend.pipeline.enable_code_review == true ? 1 : 0
   path   = var.io-web-profile-backend.repository.name
 
-  project_id                   = data.azuredevops_project.project.id
+  project_id                   = azuredevops_project.project.id
   repository                   = var.io-web-profile-backend.repository
   github_service_connection_id = azuredevops_serviceendpoint_github.azure-devops-github-pr.id
 
@@ -78,7 +78,7 @@ module "io-web-profile-backend_deploy" {
   count  = var.io-web-profile-backend.pipeline.enable_deploy == true ? 1 : 0
   path   = var.io-web-profile-backend.repository.name
 
-  project_id                   = data.azuredevops_project.project.id
+  project_id                   = azuredevops_project.project.id
   repository                   = var.io-web-profile-backend.repository
   github_service_connection_id = azuredevops_serviceendpoint_github.azure-devops-github-pr.id
 
