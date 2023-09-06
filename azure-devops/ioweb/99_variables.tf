@@ -28,7 +28,7 @@ locals {
 
   # dev_key_vault_resource_group  = "${local.prefix}-d-${local.domain}-sec-rg"
   # uat_key_vault_resource_group  = "${local.prefix}-u-${local.domain}-sec-rg"
-  prod_key_vault_resource_group = "${local.prefix}-p-sec-rg"
+  prod_key_vault_resource_group = "${local.prefix}-p-${local.domain}-sec-rg"
 
   # ☁️ VNET
   # dev_dns_zone_resource_group  = "${local.prefix}-d-vnet-rg"
