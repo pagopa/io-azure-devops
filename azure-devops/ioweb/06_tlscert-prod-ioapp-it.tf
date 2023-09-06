@@ -56,7 +56,7 @@ module "tlscert-prod-ioapp-it-cert_az" {
     azurerm = azurerm.prod
   }
 
-  project_id = data.azuredevops_project.project.id
+  project_id = azuredevops_project.project.id
   repository = var.tlscert-prod-ioapp-it.repository
   name       = "${var.tlscert-prod-ioapp-it.pipeline.dns_record_name}.${var.tlscert-prod-ioapp-it.pipeline.dns_zone_name}"
   #tfsec:ignore:general-secrets-no-plaintext-exposure
