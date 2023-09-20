@@ -34,7 +34,7 @@ locals {
   # deploy vars
   io-web-profile-backend-variables_deploy = {
     PROD_AZURE_SUBSCRIPTION  = var.prod_subscription_name
-    PROD_RESOURCE_GROUP_NAME = "TOCHANGE"
+    PROD_RESOURCE_GROUP_NAME = format("%s-p-%s-%s-profile-rg", local.prefix, local.location, local.domain)
     PROD_APP_NAME            = format("%s-p-%s-%s-profile-fn", local.prefix, local.location, local.domain)
     AGENT_POOL               = local.agent_pool
     git_email                = module.secrets_azdo.values["azure-devops-github-EMAIL"].value
