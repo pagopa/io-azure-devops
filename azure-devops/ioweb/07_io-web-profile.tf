@@ -33,7 +33,7 @@ locals {
   }
   # deploy vars
   io-web-profile-variables_deploy = {
-    PROD_AZURE_SUBSCRIPTION           = var.prod_subscription_name
+    PROD_AZURE_SUBSCRIPTION           = azuredevops_serviceendpoint_azurerm.PROD-IO.service_endpoint_name
     PROD_STORAGE_ACCOUNT_NAME         = replace(format("%s-p-weu-%s-portalsa", local.prefix, local.domain), "-", "")
     PROD_PROFILE_CDN_NAME             = format("%s-p-weu-%s-portal-cdn-profile", local.prefix, local.domain)
     PROD_ENDPOINT_NAME                = format("%s-p-weu-%s-portal-cdn-endpoint", local.prefix, local.domain)
