@@ -97,5 +97,6 @@ module "io-web-profile-backend_deploy" {
   service_connection_ids_authorization = [
     azuredevops_serviceendpoint_github.azure-devops-github-ro.id,
     azuredevops_serviceendpoint_github.azure-devops-github-rw.id,
+    azuredevops_serviceendpoint_azurerm.PROD-IO.id,
   ]
 }
