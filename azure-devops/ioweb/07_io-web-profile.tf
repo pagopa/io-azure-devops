@@ -43,9 +43,26 @@ locals {
     TF_PUBLIC_JWT_SPID_LEVEL_VALUE_L1 = "https://www.spid.gov.it/SpidL1"
     TF_PUBLIC_JWT_SPID_LEVEL_VALUE_L2 = "https://www.spid.gov.it/SpidL2"
     TF_PUBLIC_JWT_SPID_LEVEL_VALUE_L3 = "https://www.spid.gov.it/SpidL3"
-    git_email                         = module.secrets_azdo.values["azure-devops-github-EMAIL"].value
-    git_username                      = module.secrets_azdo.values["azure-devops-github-USERNAME"].value
-    github_connection                 = azuredevops_serviceendpoint_github.azure-devops-github-rw.service_endpoint_name
+    TF_PUBLIC_API_BASE_URL            = "https://api-web.io-pagopa.it/ioweb-backend"
+    TF_PUBLIC_API_BASE_PATH           = "/api/v1"
+    TF_PUBLIC_API_FETCH_TIMEOUT       = 5000
+    TF_PUBLIC_API_FETCH_MAX_RETRY     = 5
+    TF_PUBLIC_SESSION_LIST_FF         = false
+    TF_PUBLIC_CIE_ENTITY_ID           = "xx_servizicie"
+    TF_PUBLIC_ANALYTICS_ENABLE        = true
+    TF_PUBLIC_ANALYTICS_MOCK          = false
+    // the following mixpanel project token is not a secret in any way.
+    // ref -> https://developer.mixpanel.com/reference/project-token
+    TF_PUBLIC_ANALYTICS_TOKEN       = "cc8f0687d3eeb055a44fff7b779ba535"
+    TF_PUBLIC_ANALYTICS_API_HOST    = "https://api-eu.mixpanel.com"
+    TF_PUBLIC_ANALYTICS_PERSISTENCE = "localStorage"
+    TF_PUBLIC_ANALYTICS_LOG_IP      = false
+    TF_PUBLIC_ANALYTICS_DEBUG       = false
+    TF_PUBLIC_SPID_TEST_ENV_ENABLED = false
+    TF_PUBLIC_FOOTER_PRODUCT_LIST   = "https://ioapp.it/assets/products.json"
+    git_email                       = module.secrets_azdo.values["azure-devops-github-EMAIL"].value
+    git_username                    = module.secrets_azdo.values["azure-devops-github-USERNAME"].value
+    github_connection               = azuredevops_serviceendpoint_github.azure-devops-github-rw.service_endpoint_name
   }
   # deploy secrets
   io-web-profile-variables_secret_deploy = {
