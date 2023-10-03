@@ -56,7 +56,7 @@ locals {
     TF_PUBLIC_ANALYTICS_TOKEN       = "cc8f0687d3eeb055a44fff7b779ba535"
     TF_PUBLIC_ANALYTICS_API_HOST    = "https://api-eu.mixpanel.com"
     TF_PUBLIC_ANALYTICS_PERSISTENCE = "localStorage"
-    TF_PUBLIC_ANALYTICS_LOG_IP      = true
+    TF_PUBLIC_ANALYTICS_LOG_IP      = false
     TF_PUBLIC_ANALYTICS_DEBUG       = false
     TF_PUBLIC_SPID_TEST_ENV_ENABLED = false
     TF_PUBLIC_FOOTER_PRODUCT_LIST   = "https://ioapp.it/assets/products.json"
