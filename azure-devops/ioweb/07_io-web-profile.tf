@@ -47,8 +47,8 @@ locals {
     TF_PUBLIC_API_BASE_PATH           = "/api/v1"
     TF_PUBLIC_API_FETCH_TIMEOUT       = 5000
     TF_PUBLIC_API_FETCH_MAX_RETRY     = 5
-    TF_PUBLIC_FEATURE_FLAG            = false
-    TF_PUBLIC_SPID_CIE_ENTITY_ID      = "xx_servizicie"
+    TF_PUBLIC_SESSION_LIST_FF         = false
+    TF_PUBLIC_CIE_ENTITY_ID           = "xx_servizicie"
     TF_PUBLIC_ANALYTICS_ENABLE        = true
     TF_PUBLIC_ANALYTICS_MOCK          = false
     // the following mixpanel project token is not a secret in any way.
