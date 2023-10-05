@@ -44,7 +44,7 @@ locals {
     TF_PUBLIC_JWT_SPID_LEVEL_VALUE_L1 = "https://www.spid.gov.it/SpidL1"
     TF_PUBLIC_JWT_SPID_LEVEL_VALUE_L2 = "https://www.spid.gov.it/SpidL2"
     TF_PUBLIC_JWT_SPID_LEVEL_VALUE_L3 = "https://www.spid.gov.it/SpidL3"
-    TF_PUBLIC_API_BASE_URL            = "https://api-web.io-pagopa.it/ioweb-backend"
+    TF_PUBLIC_API_BASE_URL            = "https://api-web.io.pagopa.it/ioweb/backend"
     TF_PUBLIC_API_BASE_PATH           = "/api/v1"
     TF_PUBLIC_API_FETCH_TIMEOUT       = 5000
     TF_PUBLIC_API_FETCH_MAX_RETRY     = 5
