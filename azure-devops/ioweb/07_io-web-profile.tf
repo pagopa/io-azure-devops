@@ -40,7 +40,6 @@ locals {
     PROD_ENDPOINT_NAME                = format("%s-p-weu-%s-portal-cdn-endpoint", local.prefix, local.domain)
     PROD_RESOURCE_GROUP_NAME          = data.azurerm_resource_group.fe_rg.name
     TF_PUBLIC_URL_SPID_LOGIN          = "https://api-web.io.pagopa.it/ioweb/auth/v1/login"
-    TF_PUBLIC_URL_IO                  = "https://ioapp.it"
     TF_PUBLIC_JWT_SPID_LEVEL_VALUE_L1 = "https://www.spid.gov.it/SpidL1"
     TF_PUBLIC_JWT_SPID_LEVEL_VALUE_L2 = "https://www.spid.gov.it/SpidL2"
     TF_PUBLIC_JWT_SPID_LEVEL_VALUE_L3 = "https://www.spid.gov.it/SpidL3"
