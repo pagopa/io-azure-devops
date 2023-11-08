@@ -89,7 +89,7 @@ module "tlscert-prod-firmaconio-selfcare-pagopa-it-cert_az" {
   schedules = {
     days_to_build              = ["Wed"]
     schedule_only_with_changes = false
-    start_hours                = 18
+    start_hours                = 20
     start_minutes              = 00
     time_zone                  = "(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna"
     branch_filter = {
