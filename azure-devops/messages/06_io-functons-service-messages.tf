@@ -37,13 +37,13 @@ locals {
   }
   # deploy vars
   io-functions-service-messages-variables_deploy = {
-    git_email                               = module.secrets_azdo.values["azure-devops-github-EMAIL"].value
-    git_username                            = module.secrets_azdo.values["azure-devops-github-USERNAME"].value
-    github_connection                       = azuredevops_serviceendpoint_github.azure-devops-github-rw.service_endpoint_name
-    PRODUCTION_AZURE_SUBSCRIPTION = azuredevops_serviceendpoint_azurerm.PROD-IO.service_endpoint_name
+    git_email                      = module.secrets_azdo.values["azure-devops-github-EMAIL"].value
+    git_username                   = module.secrets_azdo.values["azure-devops-github-USERNAME"].value
+    github_connection              = azuredevops_serviceendpoint_github.azure-devops-github-rw.service_endpoint_name
+    PRODUCTION_AZURE_SUBSCRIPTION  = azuredevops_serviceendpoint_azurerm.PROD-IO.service_endpoint_name
     PRODUCTION_RESOURCE_GROUP_NAME = var.io-functions-service-messages.pipeline.production_resource_group_name
-    PRODUCTION_APP_NAME = var.io-functions-service-messages.pipeline.production_app_name
-    AGENT_POOL = "io-prod-linux"
+    PRODUCTION_APP_NAME            = var.io-functions-service-messages.pipeline.production_app_name
+    AGENT_POOL                     = "io-prod-linux"
   }
   # deploy secrets
   io-functions-service-messages-variables_secret_deploy = {
