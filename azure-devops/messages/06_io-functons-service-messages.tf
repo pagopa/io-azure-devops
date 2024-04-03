@@ -8,8 +8,8 @@ variable "io-functions-service-messages" {
       yml_prefix_name = null
     }
     pipeline = {
-      enable_code_review = true
-      enable_deploy      = true
+      production_resource_group_name = "io-p-service-messages-rg"
+      production_app_name            = "io-p-messages-sending-func"
     }
   }
 }
@@ -37,18 +37,13 @@ locals {
   }
   # deploy vars
   io-functions-service-messages-variables_deploy = {
-    TF_NAMESPACE                            = local.domain
-    TF_DOCKER_IMAGE_NAME                    = var.io-functions-service-messages.repository.name
-    TF_CONTAINER_REGISTRY_FQDN_PROD         = local.docker_registry_fqdn_prod
-    TF_CONTAINER_REGISTRY_SERVICE_CONN_PROD = local.srv_endpoint_name_docker_registry_prod
-    TF_KUBERNETES_SERVICE_CONN_WEU_BETA     = local.srv_endpoint_name_aks_weu_beta_prod
-    TF_KUBERNETES_SERVICE_CONN_WEU_PROD_01  = local.srv_endpoint_name_aks_weu_prod01_prod
-    TF_KUBERNETES_SERVICE_CONN_WEU_PROD_02  = local.srv_endpoint_name_aks_weu_prod02_prod
-    TF_APPINSIGHTS_SERVICE_CONN_PROD        = module.PROD-APPINSIGHTS-SERVICE-CONN.service_endpoint_name
-    TF_APPINSIGHTS_RESOURCE_ID_PROD         = data.azurerm_application_insights.application_insights_prod.id
     git_email                               = module.secrets_azdo.values["azure-devops-github-EMAIL"].value
     git_username                            = module.secrets_azdo.values["azure-devops-github-USERNAME"].value
     github_connection                       = azuredevops_serviceendpoint_github.azure-devops-github-rw.service_endpoint_name
+    PRODUCTION_AZURE_SUBSCRIPTION = azuredevops_serviceendpoint_azurerm.PROD-IO.service_endpoint_name
+    PRODUCTION_RESOURCE_GROUP_NAME = var.io-functions-service-messages.pipeline.production_resource_group_name
+    PRODUCTION_APP_NAME = var.io-functions-service-messages.pipeline.production_app_name
+    AGENT_POOL = "io-prod-linux"
   }
   # deploy secrets
   io-functions-service-messages-variables_secret_deploy = {
@@ -107,10 +102,6 @@ module "io-functions-service-messages_deploy" {
   service_connection_ids_authorization = [
     azuredevops_serviceendpoint_github.azure-devops-github-ro.id,
     azuredevops_serviceendpoint_github.azure-devops-github-rw.id,
-    azuredevops_serviceendpoint_azurecr.acr_docker_registry_prod.id,
-    azuredevops_serviceendpoint_kubernetes.aks-weu-beta.id,
-    azuredevops_serviceendpoint_kubernetes.aks-weu-prod01.id,
-    # azuredevops_serviceendpoint_kubernetes.aks-weu-prod02.id,
     module.PROD-APPINSIGHTS-SERVICE-CONN.service_endpoint_id,
   ]
 }
