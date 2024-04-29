@@ -5,14 +5,15 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.1.5 |
-| <a name="requirement_azuredevops"></a> [azuredevops](#requirement\_azuredevops) | >= 0.2.1 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | <= 3.53.0 |
+| <a name="requirement_azuredevops"></a> [azuredevops](#requirement\_azuredevops) | <= 0.10.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | <= 3.100.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azuredevops"></a> [azuredevops](#provider\_azuredevops) | 0.6.0 |
+| <a name="provider_azuredevops"></a> [azuredevops](#provider\_azuredevops) | 0.10.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.53.0 |
 | <a name="provider_azurerm.prod"></a> [azurerm.prod](#provider\_azurerm.prod) | 3.53.0 |
 
 ## Modules
@@ -24,8 +25,8 @@
 | <a name="module_letsencrypt_prod"></a> [letsencrypt\_prod](#module\_letsencrypt\_prod) | git::https://github.com/pagopa/terraform-azurerm-v3.git//letsencrypt_credential | v6.20.0 |
 | <a name="module_secrets_azdo"></a> [secrets\_azdo](#module\_secrets\_azdo) | git::https://github.com/pagopa/terraform-azurerm-v3.git//key_vault_secrets_query | v6.20.0 |
 | <a name="module_secrets_prod"></a> [secrets\_prod](#module\_secrets\_prod) | git::https://github.com/pagopa/terraform-azurerm-v3.git//key_vault_secrets_query | v6.20.0 |
-| <a name="module_tlscert-prod-weubeta-profile-internal-io-pagopa-it-cert_az"></a> [tlscert-prod-weubeta-profile-internal-io-pagopa-it-cert\_az](#module\_tlscert-prod-weubeta-profile-internal-io-pagopa-it-cert\_az) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert | v3.1.1 |
-| <a name="module_tlscert-prod-weuprod01-profile-internal-io-pagopa-it-cert_az"></a> [tlscert-prod-weuprod01-profile-internal-io-pagopa-it-cert\_az](#module\_tlscert-prod-weuprod01-profile-internal-io-pagopa-it-cert\_az) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert | v3.1.1 |
+| <a name="module_tlscert-prod-weubeta-profile-internal-io-pagopa-it-cert_az"></a> [tlscert-prod-weubeta-profile-internal-io-pagopa-it-cert\_az](#module\_tlscert-prod-weubeta-profile-internal-io-pagopa-it-cert\_az) | github.com/pagopa/azuredevops-tf-modules//azuredevops_build_definition_tls_cert_federated | v7.2.0 |
+| <a name="module_tlscert-prod-weuprod01-profile-internal-io-pagopa-it-cert_az"></a> [tlscert-prod-weuprod01-profile-internal-io-pagopa-it-cert\_az](#module\_tlscert-prod-weuprod01-profile-internal-io-pagopa-it-cert\_az) | github.com/pagopa/azuredevops-tf-modules//azuredevops_build_definition_tls_cert_federated | v7.2.0 |
 
 ## Resources
 
@@ -41,7 +42,9 @@
 | [azurerm_role_assignment.appinsights_component_contributor_prod](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [azuredevops_project.project](https://registry.terraform.io/providers/microsoft/azuredevops/latest/docs/data-sources/project) | data source |
 | [azurerm_application_insights.application_insights_prod](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/application_insights) | data source |
+| [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/client_config) | data source |
 | [azurerm_key_vault.kv_prod](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/key_vault) | data source |
+| [azurerm_subscription.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscription) | data source |
 
 ## Inputs
 

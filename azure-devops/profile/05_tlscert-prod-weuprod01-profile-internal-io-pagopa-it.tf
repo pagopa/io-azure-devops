@@ -24,9 +24,9 @@ variable "tlscert-prod-weuprod01-profile-internal-io-pagopa-it" {
 
 locals {
   tlscert-prod-weuprod01-profile-internal-io-pagopa-it = {
-    tenant_id                           = module.secrets_azdo.values["TENANTID"].value
+    tenant_id                           = data.azurerm_client_config.current.tenant_id
     subscription_name                   = var.prod_subscription_name
-    subscription_id                     = module.secrets_azdo.values["PROD-SUBSCRIPTION-ID"].value
+    subscription_id                     = data.azurerm_subscription.current.subscription_id
     dns_zone_resource_group             = local.prod_dns_zone_resource_group
     credential_subcription              = var.prod_subscription_name
     credential_key_vault_name           = local.prod_key_vault_name
@@ -46,7 +46,7 @@ locals {
 # change only providers
 #tfsec:ignore:general-secrets-no-plaintext-exposure
 module "tlscert-prod-weuprod01-profile-internal-io-pagopa-it-cert_az" {
-  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert?ref=v3.1.1"
+  source = "github.com/pagopa/azuredevops-tf-modules//azuredevops_build_definition_tls_cert_federated?ref=v7.2.0"
   count  = var.tlscert-prod-weuprod01-profile-internal-io-pagopa-it.pipeline.enable_tls_cert == true ? 1 : 0
 
   # change me
@@ -54,23 +54,20 @@ module "tlscert-prod-weuprod01-profile-internal-io-pagopa-it-cert_az" {
     azurerm = azurerm.prod
   }
 
-  project_id = data.azuredevops_project.project.id
-  repository = var.tlscert-prod-weuprod01-profile-internal-io-pagopa-it.repository
-  name       = "${var.tlscert-prod-weuprod01-profile-internal-io-pagopa-it.pipeline.dns_record_name}.${var.tlscert-prod-weuprod01-profile-internal-io-pagopa-it.pipeline.dns_zone_name}"
-  #tfsec:ignore:general-secrets-no-plaintext-exposure
-  #tfsec:ignore:GEN003
-  renew_token                  = local.tlscert_renew_token
+  project_id                   = data.azuredevops_project.project.id
+  repository                   = var.tlscert-prod-weuprod01-profile-internal-io-pagopa-it.repository
   path                         = "${local.domain}\\${var.tlscert-prod-weuprod01-profile-internal-io-pagopa-it.pipeline.path}"
   github_service_connection_id = azuredevops_serviceendpoint_github.azure-devops-github-ro.id
 
-  dns_record_name         = var.tlscert-prod-weuprod01-profile-internal-io-pagopa-it.pipeline.dns_record_name
-  dns_zone_name           = var.tlscert-prod-weuprod01-profile-internal-io-pagopa-it.pipeline.dns_zone_name
-  dns_zone_resource_group = local.tlscert-prod-weuprod01-profile-internal-io-pagopa-it.dns_zone_resource_group
-  tenant_id               = local.tlscert-prod-weuprod01-profile-internal-io-pagopa-it.tenant_id
-  subscription_name       = local.tlscert-prod-weuprod01-profile-internal-io-pagopa-it.subscription_name
-  subscription_id         = local.tlscert-prod-weuprod01-profile-internal-io-pagopa-it.subscription_id
+  dns_record_name                      = var.tlscert-prod-weuprod01-profile-internal-io-pagopa-it.pipeline.dns_record_name
+  dns_zone_name                        = var.tlscert-prod-weuprod01-profile-internal-io-pagopa-it.pipeline.dns_zone_name
+  dns_zone_resource_group              = local.tlscert-prod-weuprod01-profile-internal-io-pagopa-it.dns_zone_resource_group
+  tenant_id                            = local.tlscert-prod-weuprod01-profile-internal-io-pagopa-it.tenant_id
+  subscription_name                    = local.tlscert-prod-weuprod01-profile-internal-io-pagopa-it.subscription_name
+  subscription_id                      = local.tlscert-prod-weuprod01-profile-internal-io-pagopa-it.subscription_id
+  managed_identity_resource_group_name = local.identity_rg_name
 
-  credential_subcription              = local.tlscert-prod-weuprod01-profile-internal-io-pagopa-it.credential_subcription
+  location                            = local.location
   credential_key_vault_name           = local.tlscert-prod-weuprod01-profile-internal-io-pagopa-it.credential_key_vault_name
   credential_key_vault_resource_group = local.tlscert-prod-weuprod01-profile-internal-io-pagopa-it.credential_key_vault_resource_group
 
