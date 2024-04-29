@@ -12,7 +12,8 @@ locals {
   prefix           = "io"
   azure_devops_org = "pagopaspa"
   domain           = "ioweb"
-  location         = "weu"
+  location         = "westeurope"
+  location_short   = "weu"
 
   # 🔐 KV
   # dev_key_vault_azdo_name  = "${local.prefix}-d-azdo-weu-kv"
@@ -41,4 +42,6 @@ locals {
   tlscert_renew_token = "v2"
 
   agent_pool = "${local.prefix}-prod-linux"
+
+  identity_rg_name = "${local.prefix}-p-identity-rg"
 }
