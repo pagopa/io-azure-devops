@@ -4,9 +4,6 @@
 #tfsec:ignore:GEN003
 module "PROD-TLS-CERT-SERVICE-CONN" {
   source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_azurerm_limited?ref=v3.1.1"
-  providers = {
-    azurerm = azurerm.prod
-  }
 
   project_id = data.azuredevops_project.project.id
   #tfsec:ignore:general-secrets-no-plaintext-exposure
@@ -22,13 +19,11 @@ module "PROD-TLS-CERT-SERVICE-CONN" {
 }
 
 data "azurerm_key_vault" "kv_prod" {
-  provider            = azurerm.prod
   name                = local.prod_key_vault_name
   resource_group_name = local.prod_key_vault_resource_group
 }
 
 resource "azurerm_key_vault_access_policy" "PROD-TLS-CERT-SERVICE-CONN_kv_prod" {
-  provider     = azurerm.prod
   key_vault_id = data.azurerm_key_vault.kv_prod.id
   tenant_id    = module.secrets_azdo.values["TENANTID"].value
   object_id    = module.PROD-TLS-CERT-SERVICE-CONN.service_principal_object_id
