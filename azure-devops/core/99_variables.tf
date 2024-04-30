@@ -39,4 +39,6 @@ locals {
   #tfsec:ignore:general-secrets-no-plaintext-exposure
   #tfsec:ignore:GEN002
   tlscert_renew_token = "v3"
+
+  identity_rg_name = "${local.prefix}-p-identity-rg"
 }

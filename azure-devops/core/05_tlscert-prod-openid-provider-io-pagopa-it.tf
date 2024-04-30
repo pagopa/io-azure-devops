@@ -27,9 +27,9 @@ variable "tlscert-openid-provider-io-pagopa-it" {
 
 locals {
   tlscert-openid-provider-io-pagopa-it = {
-    tenant_id         = module.secrets_azdo.values["TENANTID"].value
+    tenant_id         = data.azurerm_client_config.current.tenant_id
     subscription_name = var.prod_subscription_name
-    subscription_id   = module.secrets_azdo.values["PROD-SUBSCRIPTION-ID"].value
+    subscription_id   = data.azurerm_subscription.current.subscription_id
   }
   tlscert-openid-provider-io-pagopa-it-variables = {
     KEY_VAULT_CERT_NAME          = "${replace(var.tlscert-openid-provider-io-pagopa-it.pipeline.dns_record_name, ".", "-")}-${replace(var.tlscert-openid-provider-io-pagopa-it.pipeline.dns_zone_name, ".", "-")}"
@@ -40,22 +40,23 @@ locals {
 }
 
 module "tlscert-openid-provider-io-pagopa-it-cert_az" {
-  source = "github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert_federated?ref=v4.2.2"
+  source = "github.com/pagopa/azuredevops-tf-modules//azuredevops_build_definition_tls_cert_federated?ref=v7.2.0"
   count  = var.tlscert-openid-provider-io-pagopa-it.pipeline.enable_tls_cert == true ? 1 : 0
 
-  location                     = local.location
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.tlscert-openid-provider-io-pagopa-it.repository
   path                         = "${local.domain}\\${var.tlscert-openid-provider-io-pagopa-it.pipeline.path}"
   github_service_connection_id = azuredevops_serviceendpoint_github.azure-devops-github-rw.id
 
-  dns_record_name         = var.tlscert-openid-provider-io-pagopa-it.pipeline.dns_record_name
-  dns_zone_name           = var.tlscert-openid-provider-io-pagopa-it.pipeline.dns_zone_name
-  dns_zone_resource_group = var.tlscert-openid-provider-io-pagopa-it.pipeline.dns_zone_resource_group
-  tenant_id               = local.tlscert-openid-provider-io-pagopa-it.tenant_id
-  subscription_name       = local.tlscert-openid-provider-io-pagopa-it.subscription_name
-  subscription_id         = local.tlscert-openid-provider-io-pagopa-it.subscription_id
+  dns_record_name                      = var.tlscert-openid-provider-io-pagopa-it.pipeline.dns_record_name
+  dns_zone_name                        = var.tlscert-openid-provider-io-pagopa-it.pipeline.dns_zone_name
+  dns_zone_resource_group              = var.tlscert-openid-provider-io-pagopa-it.pipeline.dns_zone_resource_group
+  tenant_id                            = local.tlscert-openid-provider-io-pagopa-it.tenant_id
+  subscription_name                    = local.tlscert-openid-provider-io-pagopa-it.subscription_name
+  subscription_id                      = local.tlscert-openid-provider-io-pagopa-it.subscription_id
+  managed_identity_resource_group_name = local.identity_rg_name
 
+  location                            = local.location
   credential_key_vault_name           = var.tlscert-openid-provider-io-pagopa-it.pipeline.variables.KEY_VAULT_NAME
   credential_key_vault_resource_group = var.tlscert-openid-provider-io-pagopa-it.pipeline.variables.RESOURCE_GROUP_NAME
 

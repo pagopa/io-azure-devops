@@ -7,7 +7,7 @@ terraform {
     }
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "<= 3.71.0"
+      version = "<= 3.100.0"
     }
   }
   backend "azurerm" {}
@@ -17,12 +17,6 @@ provider "azurerm" {
   features {}
 }
 
-provider "azurerm" {
-  features {
-    key_vault {
-      purge_soft_delete_on_destroy = false
-    }
-  }
-  alias           = "prod"
-  subscription_id = module.secrets_azdo.values["PROD-SUBSCRIPTION-ID"].value
-}
+data "azurerm_client_config" "current" {}
+
+data "azurerm_subscription" "current" {}

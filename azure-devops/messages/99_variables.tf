@@ -22,6 +22,7 @@ locals {
   prefix           = "io"
   azure_devops_org = "pagopaspa"
   domain           = "messages"
+  location         = "westeurope"
 
   # 🔐 KV
   # dev_key_vault_azdo_name  = "${local.prefix}-d-azdo-weu-kv"
@@ -68,4 +69,6 @@ locals {
   # dev_appinsights_resource_group = "${local.prefix}-d-rg-common"
   # uat_appinsights_resource_group = "${local.prefix}-u-rg-common"
   prod_appinsights_resource_group = "${local.prefix}-p-rg-common"
+
+  identity_rg_name = "${local.prefix}-p-identity-rg"
 }

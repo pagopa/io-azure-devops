@@ -3,10 +3,10 @@ terraform {
   required_providers {
     azuredevops = {
       source  = "microsoft/azuredevops"
-      version = ">= 0.10.0"
+      version = "<= 0.10.0"
     }
     azurerm = {
-      version = "<= 3.71.0"
+      version = "<= 3.100.0"
     }
     azuread = {
       source  = "hashicorp/azuread"

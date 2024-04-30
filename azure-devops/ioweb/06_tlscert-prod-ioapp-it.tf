@@ -24,9 +24,9 @@ variable "tlscert-prod-ioapp-it" {
 
 locals {
   tlscert-prod-ioapp-it = {
-    tenant_id                           = module.secrets_azdo.values["TENANTID"].value
+    tenant_id                           = data.azurerm_client_config.current.tenant_id
     subscription_name                   = var.prod_subscription_name
-    subscription_id                     = module.secrets_azdo.values["PROD-SUBSCRIPTION-ID"].value
+    subscription_id                     = data.azurerm_subscription.current.subscription_id
     dns_zone_resource_group             = local.prod_dns_zone_resource_group
     credential_subcription              = var.prod_subscription_name
     credential_key_vault_name           = local.prod_key_vault_name
@@ -46,33 +46,25 @@ locals {
 # change only providers
 #tfsec:ignore:general-secrets-no-plaintext-exposure
 module "tlscert-prod-ioapp-it-cert_az" {
-  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_tls_cert?ref=v3.6.0"
+  source = "github.com/pagopa/azuredevops-tf-modules//azuredevops_build_definition_tls_cert_federated?ref=v7.2.0"
   count  = var.tlscert-prod-ioapp-it.pipeline.enable_tls_cert == true ? 1 : 0
 
   depends_on = [module.letsencrypt_prod]
 
-  # change me
-  providers = {
-    azurerm = azurerm.prod
-  }
-
-  project_id = azuredevops_project.project.id
-  repository = var.tlscert-prod-ioapp-it.repository
-  name       = "${var.tlscert-prod-ioapp-it.pipeline.dns_record_name}.${var.tlscert-prod-ioapp-it.pipeline.dns_zone_name}"
-  #tfsec:ignore:general-secrets-no-plaintext-exposure
-  #tfsec:ignore:GEN003
-  renew_token                  = local.tlscert_renew_token
+  project_id                   = azuredevops_project.project.id
+  repository                   = var.tlscert-prod-ioapp-it.repository
   path                         = var.tlscert-prod-ioapp-it.pipeline.path
   github_service_connection_id = azuredevops_serviceendpoint_github.azure-devops-github-ro.id
 
-  dns_record_name         = var.tlscert-prod-ioapp-it.pipeline.dns_record_name
-  dns_zone_name           = var.tlscert-prod-ioapp-it.pipeline.dns_zone_name
-  dns_zone_resource_group = local.tlscert-prod-ioapp-it.dns_zone_resource_group
-  tenant_id               = local.tlscert-prod-ioapp-it.tenant_id
-  subscription_name       = local.tlscert-prod-ioapp-it.subscription_name
-  subscription_id         = local.tlscert-prod-ioapp-it.subscription_id
+  dns_record_name                      = var.tlscert-prod-ioapp-it.pipeline.dns_record_name
+  dns_zone_name                        = var.tlscert-prod-ioapp-it.pipeline.dns_zone_name
+  dns_zone_resource_group              = local.tlscert-prod-ioapp-it.dns_zone_resource_group
+  tenant_id                            = local.tlscert-prod-ioapp-it.tenant_id
+  subscription_name                    = local.tlscert-prod-ioapp-it.subscription_name
+  subscription_id                      = local.tlscert-prod-ioapp-it.subscription_id
+  managed_identity_resource_group_name = local.identity_rg_name
 
-  credential_subcription              = local.tlscert-prod-ioapp-it.credential_subcription
+  location                            = local.location
   credential_key_vault_name           = local.tlscert-prod-ioapp-it.credential_key_vault_name
   credential_key_vault_resource_group = local.tlscert-prod-ioapp-it.credential_key_vault_resource_group
 
