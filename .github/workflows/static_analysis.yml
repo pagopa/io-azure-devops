@@ -15,18 +15,23 @@ jobs:
       - name: init_terraform_folders
         env:
           FOLDERS: >
-            azure-devops/iac
-            azure-devops/messages
-            azure-devops/payments
-            azure-devops/profile
-            azure-devops/ioweb
+            io-backend-projects/iac
+            io-backend-projects/messages
+            io-backend-projects/payments
+            io-backend-projects/profile
+            io-backend-projects/ioweb
+            io-developer-portal-projects
         run: |
           pids=()
 
           TAG=$(cat .terraform-version)
           for f in $FOLDERS; do
             pushd "$(pwd)/${f}"
-              sed -i -e 's/  backend "azurerm" {}//g' 99_main.tf # use local backend
+              if [[ -f "99_main.tf" ]]; then
+                sed -i -e 's/  backend "azurerm" {}//g' 99_main.tf # use local backend
+              elif [[ -f "main.tf" ]]; then
+                sed -i -e '/backend "azurerm" {/,/}/d' main.tf # use local backend
+              fi
               docker run -v $(pwd):/tmp -w /tmp hashicorp/terraform:$TAG init &
               pids+=($!)
             popd
