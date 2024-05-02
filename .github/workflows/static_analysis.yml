@@ -15,11 +15,12 @@ jobs:
       - name: init_terraform_folders
         env:
           FOLDERS: >
-            azure-devops/iac
-            azure-devops/messages
-            azure-devops/payments
-            azure-devops/profile
-            azure-devops/ioweb
+            io-backend-projects/iac
+            io-backend-projects/messages
+            io-backend-projects/payments
+            io-backend-projects/profile
+            io-backend-projects/ioweb
+            io-developer-portal-projects
         run: |
           pids=()
 
