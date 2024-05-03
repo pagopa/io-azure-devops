@@ -74,7 +74,7 @@ module "io-web-profile-backend_code_review" {
 }
 
 module "io-web-profile-backend_deploy" {
-  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy?ref=v3.9.0"
+  source = "github.com/pagopa/azuredevops-tf-modules//azuredevops_build_definition_deploy?ref=v7.2.0"
   count  = var.io-web-profile-backend.pipeline.enable_deploy == true ? 1 : 0
   path   = var.io-web-profile-backend.repository.name
 

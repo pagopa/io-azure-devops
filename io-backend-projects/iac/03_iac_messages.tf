@@ -72,7 +72,7 @@ module "messages_iac_code_review" {
 }
 
 module "messages_iac_deploy" {
-  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy?ref=v3.1.1"
+  source = "github.com/pagopa/azuredevops-tf-modules//azuredevops_build_definition_deploy?ref=v7.2.0"
   count  = var.messages_iac.pipeline.enable_deploy == true ? 1 : 0
   path   = var.messages_iac.pipeline.path
 
