@@ -23,14 +23,14 @@
 | <a name="module_core_iac_deploy"></a> [core\_iac\_deploy](#module\_core\_iac\_deploy) | github.com/pagopa/azuredevops-tf-modules//azuredevops_build_definition_deploy | v7.2.0 |
 | <a name="module_messages_iac_code_review"></a> [messages\_iac\_code\_review](#module\_messages\_iac\_code\_review) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review | v3.1.1 |
 | <a name="module_messages_iac_deploy"></a> [messages\_iac\_deploy](#module\_messages\_iac\_deploy) | github.com/pagopa/azuredevops-tf-modules//azuredevops_build_definition_deploy | v7.2.0 |
-| <a name="module_messages_prod_secrets"></a> [messages\_prod\_secrets](#module\_messages\_prod\_secrets) | git::https://github.com/pagopa/terraform-azurerm-v3.git//key_vault_secrets_query | v6.20.0 |
+| <a name="module_messages_prod_secrets"></a> [messages\_prod\_secrets](#module\_messages\_prod\_secrets) | github.com/pagopa/terraform-azurerm-v3//key_vault_secrets_query | v8.9.0 |
 | <a name="module_payments_iac_code_review"></a> [payments\_iac\_code\_review](#module\_payments\_iac\_code\_review) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review | v3.1.1 |
 | <a name="module_payments_iac_deploy"></a> [payments\_iac\_deploy](#module\_payments\_iac\_deploy) | github.com/pagopa/azuredevops-tf-modules//azuredevops_build_definition_deploy | v7.2.0 |
-| <a name="module_payments_prod_secrets"></a> [payments\_prod\_secrets](#module\_payments\_prod\_secrets) | git::https://github.com/pagopa/terraform-azurerm-v3.git//key_vault_secrets_query | v6.20.0 |
+| <a name="module_payments_prod_secrets"></a> [payments\_prod\_secrets](#module\_payments\_prod\_secrets) | github.com/pagopa/terraform-azurerm-v3//key_vault_secrets_query | v8.9.0 |
 | <a name="module_profile_iac_code_review"></a> [profile\_iac\_code\_review](#module\_profile\_iac\_code\_review) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review | v3.1.1 |
 | <a name="module_profile_iac_deploy"></a> [profile\_iac\_deploy](#module\_profile\_iac\_deploy) | github.com/pagopa/azuredevops-tf-modules//azuredevops_build_definition_deploy | v7.2.0 |
-| <a name="module_profile_prod_secrets"></a> [profile\_prod\_secrets](#module\_profile\_prod\_secrets) | git::https://github.com/pagopa/terraform-azurerm-v3.git//key_vault_secrets_query | v6.20.0 |
-| <a name="module_secret_azdo"></a> [secret\_azdo](#module\_secret\_azdo) | git::https://github.com/pagopa/terraform-azurerm-v3.git//key_vault_secrets_query | v6.20.0 |
+| <a name="module_profile_prod_secrets"></a> [profile\_prod\_secrets](#module\_profile\_prod\_secrets) | github.com/pagopa/terraform-azurerm-v3//key_vault_secrets_query | v8.9.0 |
+| <a name="module_secret_azdo"></a> [secret\_azdo](#module\_secret\_azdo) | github.com/pagopa/terraform-azurerm-v3//key_vault_secrets_query | v8.9.0 |
 | <a name="module_sign_iac_code_review"></a> [sign\_iac\_code\_review](#module\_sign\_iac\_code\_review) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_code_review | v3.1.1 |
 | <a name="module_sign_iac_deploy"></a> [sign\_iac\_deploy](#module\_sign\_iac\_deploy) | github.com/pagopa/azuredevops-tf-modules//azuredevops_build_definition_deploy | v7.2.0 |
 

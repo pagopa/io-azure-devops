@@ -51,11 +51,6 @@ module "tlscert-prod-weubeta-messages-internal-io-pagopa-it-cert_az" {
 
   depends_on = [module.letsencrypt_prod]
 
-  # change me
-  providers = {
-    azurerm = azurerm.prod
-  }
-
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.tlscert-prod-weubeta-messages-internal-io-pagopa-it.repository
   path                         = "${local.domain}\\${var.tlscert-prod-weubeta-messages-internal-io-pagopa-it.pipeline.path}"

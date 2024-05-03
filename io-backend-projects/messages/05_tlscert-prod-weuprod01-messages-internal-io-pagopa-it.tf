@@ -49,11 +49,6 @@ module "tlscert-prod-weuprod01-messages-internal-io-pagopa-it-cert_az" {
   source = "github.com/pagopa/azuredevops-tf-modules//azuredevops_build_definition_tls_cert_federated?ref=v7.2.0"
   count  = var.tlscert-prod-weuprod01-messages-internal-io-pagopa-it.pipeline.enable_tls_cert == true ? 1 : 0
 
-  # change me
-  providers = {
-    azurerm = azurerm.prod
-  }
-
   project_id                   = data.azuredevops_project.project.id
   repository                   = var.tlscert-prod-weuprod01-messages-internal-io-pagopa-it.repository
   path                         = "${local.domain}\\${var.tlscert-prod-weuprod01-messages-internal-io-pagopa-it.pipeline.path}"

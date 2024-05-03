@@ -3,12 +3,7 @@
 #
 
 module "profile_prod_secrets" {
-
-  providers = {
-    azurerm = azurerm.prod
-  }
-
-  source = "git::https://github.com/pagopa/terraform-azurerm-v3.git//key_vault_secrets_query?ref=v6.20.0"
+  source = "github.com/pagopa/terraform-azurerm-v3//key_vault_secrets_query?ref=v8.9.0"
 
   resource_group = local.prod_profile_key_vault_resource_group
   key_vault_name = local.prod_profile_key_vault_name

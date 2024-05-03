@@ -21,8 +21,8 @@
 |------|--------|---------|
 | <a name="module_PROD-TLS-CERT-SERVICE-CONN"></a> [PROD-TLS-CERT-SERVICE-CONN](#module\_PROD-TLS-CERT-SERVICE-CONN) | git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_azurerm_limited | v3.1.1 |
 | <a name="module_letsencrypt_prod"></a> [letsencrypt\_prod](#module\_letsencrypt\_prod) | git::https://github.com/pagopa/terraform-azurerm-v3.git//letsencrypt_credential | v6.20.0 |
-| <a name="module_secrets_azdo"></a> [secrets\_azdo](#module\_secrets\_azdo) | git::https://github.com/pagopa/terraform-azurerm-v3.git//key_vault_secrets_query | v6.20.0 |
-| <a name="module_secrets_prod"></a> [secrets\_prod](#module\_secrets\_prod) | git::https://github.com/pagopa/terraform-azurerm-v3.git//key_vault_secrets_query | v6.20.0 |
+| <a name="module_secrets_azdo"></a> [secrets\_azdo](#module\_secrets\_azdo) | github.com/pagopa/terraform-azurerm-v3//key_vault_secrets_query | v8.9.0 |
+| <a name="module_secrets_prod"></a> [secrets\_prod](#module\_secrets\_prod) | github.com/pagopa/terraform-azurerm-v3//key_vault_secrets_query | v8.9.0 |
 | <a name="module_tlscert-openid-provider-io-pagopa-it-cert_az"></a> [tlscert-openid-provider-io-pagopa-it-cert\_az](#module\_tlscert-openid-provider-io-pagopa-it-cert\_az) | github.com/pagopa/azuredevops-tf-modules//azuredevops_build_definition_tls_cert_federated | v7.2.0 |
 | <a name="module_tlscert-prod-api-app-internal-io-pagopa-it-cert_az"></a> [tlscert-prod-api-app-internal-io-pagopa-it-cert\_az](#module\_tlscert-prod-api-app-internal-io-pagopa-it-cert\_az) | github.com/pagopa/azuredevops-tf-modules//azuredevops_build_definition_tls_cert_federated | v7.2.0 |
 | <a name="module_tlscert-prod-api-app-io-pagopa-it-cert_az"></a> [tlscert-prod-api-app-io-pagopa-it-cert\_az](#module\_tlscert-prod-api-app-io-pagopa-it-cert\_az) | github.com/pagopa/azuredevops-tf-modules//azuredevops_build_definition_tls_cert_federated | v7.2.0 |

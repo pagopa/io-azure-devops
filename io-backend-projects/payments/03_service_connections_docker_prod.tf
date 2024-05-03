@@ -7,6 +7,6 @@ resource "azuredevops_serviceendpoint_azurecr" "acr_docker_registry_prod" {
   resource_group = local.docker_registry_rg_name_prod
 
   azurecr_subscription_name = var.prod_subscription_name
-  azurecr_spn_tenantid      = module.secrets_azdo.values["TENANTID"].value
-  azurecr_subscription_id   = module.secrets_azdo.values["PROD-SUBSCRIPTION-ID"].value
+  azurecr_spn_tenantid      = data.azurerm_client_config.current.tenant_id
+  azurecr_subscription_id   = data.azurerm_subscription.current.subscription_id
 }

@@ -3,7 +3,7 @@
 #
 
 module "secret_core" {
-  source = "git::https://github.com/pagopa/terraform-azurerm-v3//key_vault_secrets_query?ref=v7.20.0"
+  source = "github.com/pagopa/terraform-azurerm-v3//key_vault_secrets_query?ref=v8.9.0"
   providers = {
     azurerm = azurerm.prod
   }

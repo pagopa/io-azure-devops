@@ -19,13 +19,3 @@ provider "azurerm" {
     }
   }
 }
-
-provider "azurerm" {
-  alias = "prod"
-  features {
-    key_vault {
-      purge_soft_delete_on_destroy = false
-    }
-  }
-  subscription_id = module.secret_azdo.values["PAGOPAIT-PROD-IO-SUBSCRIPTION-ID"].value
-}

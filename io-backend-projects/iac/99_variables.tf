@@ -19,7 +19,6 @@ locals {
   github_org           = "pagopa"
   prefix               = "io"
 
-
   # 🔐 KV AZDO
   prod_key_vault_resource_group = "io-p-rg-operations"
   prod_key_vault_azdo_name      = "io-p-kv-azuredevops"
