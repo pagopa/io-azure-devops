@@ -49,7 +49,7 @@ module "tlscert-prod-firmaconio-selfcare-pagopa-it-cert_az" {
   source = "github.com/pagopa/azuredevops-tf-modules//azuredevops_build_definition_tls_cert_federated?ref=v7.2.0"
   count  = var.tlscert-prod-firmaconio-selfcare-pagopa-it.pipeline.enable_tls_cert == true ? 1 : 0
 
-  project_id                   = data.azuredevops_project.project.id
+  project_id                   = azuredevops_project.project.id
   repository                   = var.tlscert-prod-firmaconio-selfcare-pagopa-it.repository
   path                         = "${local.domain}\\${var.tlscert-prod-firmaconio-selfcare-pagopa-it.pipeline.path}"
   github_service_connection_id = azuredevops_serviceendpoint_github.azure-devops-github-ro.id
