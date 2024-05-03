@@ -5,7 +5,7 @@
 module "PROD-TLS-CERT-SERVICE-CONN" {
   source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_serviceendpoint_azurerm_limited?ref=v3.1.1"
 
-  project_id = data.azuredevops_project.project.id
+  project_id = azuredevops_project.project.id
   #tfsec:ignore:general-secrets-no-plaintext-exposure
   renew_token       = local.tlscert_renew_token
   name              = "${local.prefix}-p-${local.domain}-tls-cert"
