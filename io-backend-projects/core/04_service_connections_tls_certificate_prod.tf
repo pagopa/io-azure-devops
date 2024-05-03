@@ -23,8 +23,21 @@ data "azurerm_key_vault" "kv_prod" {
   resource_group_name = local.prod_key_vault_resource_group
 }
 
+data "azurerm_key_vault" "kv_common_prod" {
+  name                = local.prod_key_vault_common_name
+  resource_group_name = local.prod_key_vault_common_resource_group
+}
+
 resource "azurerm_key_vault_access_policy" "PROD-TLS-CERT-SERVICE-CONN_kv_prod" {
   key_vault_id = data.azurerm_key_vault.kv_prod.id
+  tenant_id    = module.secrets_azdo.values["TENANTID"].value
+  object_id    = module.PROD-TLS-CERT-SERVICE-CONN.service_principal_object_id
+
+  certificate_permissions = ["Get", "Import"]
+}
+
+resource "azurerm_key_vault_access_policy" "PROD-TLS-CERT-SERVICE-CONN_kv_prod_common" {
+  key_vault_id = data.azurerm_key_vault.kv_common_prod.id
   tenant_id    = module.secrets_azdo.values["TENANTID"].value
   object_id    = module.PROD-TLS-CERT-SERVICE-CONN.service_principal_object_id
 
