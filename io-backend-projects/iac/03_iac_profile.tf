@@ -72,7 +72,7 @@ module "profile_iac_code_review" {
 }
 
 module "profile_iac_deploy" {
-  source = "git::https://github.com/pagopa/azuredevops-tf-modules.git//azuredevops_build_definition_deploy?ref=v3.1.1"
+  source = "github.com/pagopa/azuredevops-tf-modules//azuredevops_build_definition_deploy?ref=v7.2.0"
   count  = var.profile_iac.pipeline.enable_deploy == true ? 1 : 0
   path   = var.profile_iac.pipeline.path
 

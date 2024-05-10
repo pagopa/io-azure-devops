@@ -10,6 +10,6 @@ resource "azuredevops_serviceendpoint_azurerm" "PROD-IO" {
   service_endpoint_name     = "PROD-IO-SERVICE-CONN"
   description               = "PROD-IO Service connection"
   azurerm_subscription_name = "PROD-IO"
-  azurerm_spn_tenantid      = module.secrets_azdo.values["TENANTID"].value
-  azurerm_subscription_id   = module.secrets_azdo.values["PROD-SUBSCRIPTION-ID"].value
+  azurerm_spn_tenantid      = data.azurerm_client_config.current.tenant_id
+  azurerm_subscription_id   = data.azurerm_subscription.current.subscription_id
 }
