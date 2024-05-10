@@ -81,7 +81,7 @@ module "tlscert-prod-api-web-io-pagopa-it-cert_az" {
   service_connection_ids_authorization = local.tlscert-prod-api-web-io-pagopa-it.service_connection_ids_authorization
 
   schedules = {
-    days_to_build              = ["Mon"]
+    days_to_build              = ["Tue", "Thu"]
     schedule_only_with_changes = false
     start_hours                = 3
     start_minutes              = 0
