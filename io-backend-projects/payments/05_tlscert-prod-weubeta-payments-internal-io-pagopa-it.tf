@@ -32,11 +32,11 @@ locals {
     credential_key_vault_name           = local.prod_key_vault_name
     credential_key_vault_resource_group = local.prod_key_vault_resource_group
     service_connection_ids_authorization = [
-      module.PROD-TLS-CERT-SERVICE-CONN.service_endpoint_id,
+      module.PROD-TLS-AZDO-CERT-SERVICE-CONN.service_endpoint_id,
     ]
   }
   tlscert-prod-weubeta-payments-internal-io-pagopa-it-variables = {
-    KEY_VAULT_SERVICE_CONNECTION = module.PROD-TLS-CERT-SERVICE-CONN.service_endpoint_name,
+    KEY_VAULT_SERVICE_CONNECTION = module.PROD-TLS-AZDO-CERT-SERVICE-CONN.service_endpoint_name,
     KEY_VAULT_NAME               = local.prod_key_vault_name
   }
   tlscert-prod-weubeta-payments-internal-io-pagopa-it-variables_secret = {
