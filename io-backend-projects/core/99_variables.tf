@@ -13,7 +13,7 @@ locals {
   azure_devops_org = "pagopaspa"
   domain           = "core"
   location         = "westeurope"
-  alternate_chain = "CN=DST Root CA X3"
+  alternate_chain  = "CN=DST Root CA X3"
 
   # 🔐 KV
   # dev_key_vault_azdo_name  = "${local.prefix}-d-azdo-weu-kv"
