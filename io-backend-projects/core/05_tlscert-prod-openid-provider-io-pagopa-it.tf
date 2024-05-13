@@ -3,7 +3,7 @@ variable "tlscert-openid-provider-io-pagopa-it" {
     repository = {
       organization   = "pagopa"
       name           = "le-azure-acme-tiny"
-      branch_name    = "refs/heads/master"
+      branch_name    = "refs/heads/alternate-chains-download"
       pipelines_path = "."
     }
     pipeline = {
@@ -38,6 +38,7 @@ locals {
   tlscert-openid-provider-io-pagopa-it-variables = {
     KEY_VAULT_SERVICE_CONNECTION = module.PROD-TLS-AZDO-CERT-SERVICE-CONN.service_endpoint_name,
     KEY_VAULT_NAME               = local.prod_key_vault_name
+    alternate_chain_cn           = local.alternate_chain
   }
   tlscert-openid-provider-io-pagopa-it-variables_secret = {
   }
