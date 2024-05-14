@@ -9,10 +9,11 @@ variable "project_name_prefix" {
 }
 
 locals {
-  prefix           = "io"
-  azure_devops_org = "pagopaspa"
-  domain           = "core"
-  location         = "westeurope"
+  prefix             = "io"
+  azure_devops_org   = "pagopaspa"
+  domain             = "core"
+  location           = "westeurope"
+  alternate_chain_cn = "CN=DST Root CA X3"
 
   # 🔐 KV
   # dev_key_vault_azdo_name  = "${local.prefix}-d-azdo-weu-kv"

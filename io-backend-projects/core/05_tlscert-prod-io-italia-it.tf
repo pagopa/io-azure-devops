@@ -37,7 +37,8 @@ locals {
   }
   tlscert-prod-io-italia-it-variables = {
     KEY_VAULT_SERVICE_CONNECTION = module.PROD-TLS-AZDO-CERT-SERVICE-CONN.service_endpoint_name,
-    KEY_VAULT_NAME               = local.prod_key_vault_common_name
+    KEY_VAULT_NAME               = local.prod_key_vault_common_name,
+    alternate_chain_cn           = local.alternate_chain_cn
   }
   tlscert-prod-io-italia-it-variables_secret = {
   }
