@@ -79,10 +79,10 @@ module "tlscert-prod-firmaconio-selfcare-pagopa-it-cert_az" {
   service_connection_ids_authorization = local.tlscert-prod-firmaconio-selfcare-pagopa-it.service_connection_ids_authorization
 
   schedules = {
-    days_to_build              = ["Wed"]
+    days_to_build              = ["Mon", "Wed", "Fri"]
     schedule_only_with_changes = false
-    start_hours                = 20
-    start_minutes              = 00
+    start_hours                = 4
+    start_minutes              = 0
     time_zone                  = "(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna"
     branch_filter = {
       include = ["master"]

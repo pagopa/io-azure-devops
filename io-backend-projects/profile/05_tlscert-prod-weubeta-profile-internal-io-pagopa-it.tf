@@ -80,10 +80,10 @@ module "tlscert-prod-weubeta-profile-internal-io-pagopa-it-cert_az" {
   service_connection_ids_authorization = local.tlscert-prod-weubeta-profile-internal-io-pagopa-it.service_connection_ids_authorization
 
   schedules = {
-    days_to_build              = ["Wed"]
+    days_to_build              = ["Tue", "Thu"]
     schedule_only_with_changes = false
-    start_hours                = 18
-    start_minutes              = 00
+    start_hours                = 4
+    start_minutes              = 10
     time_zone                  = "(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna"
     branch_filter = {
       include = ["master"]
