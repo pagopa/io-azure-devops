@@ -84,7 +84,7 @@ module "tlscert-prod-continua-io-pagopa-it-cert_az" {
     start_minutes              = 30
     time_zone                  = "(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna"
     branch_filter = {
-      include = ["master", "main"]
+      include = ["master"]
       exclude = []
     }
   }
