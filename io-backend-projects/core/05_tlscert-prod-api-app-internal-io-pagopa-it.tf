@@ -83,7 +83,7 @@ module "tlscert-prod-api-app-internal-io-pagopa-it-cert_az" {
     start_minutes              = 10
     time_zone                  = "(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna"
     branch_filter = {
-      include = ["master", "main"]
+      include = ["master"]
       exclude = []
     }
   }
