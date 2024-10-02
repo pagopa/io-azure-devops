@@ -110,7 +110,6 @@ module "io-functions-service-messages_deploy" {
     azuredevops_serviceendpoint_azurecr.acr_docker_registry_prod.id,
     azuredevops_serviceendpoint_kubernetes.aks-weu-beta.id,
     azuredevops_serviceendpoint_kubernetes.aks-weu-prod01.id,
-    # azuredevops_serviceendpoint_kubernetes.aks-weu-prod02.id,
     module.PROD-APPINSIGHTS-SERVICE-CONN.service_endpoint_id,
   ]
 }
