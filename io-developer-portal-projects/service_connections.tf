@@ -85,7 +85,7 @@ resource "azuredevops_serviceendpoint_github" "io-azure-devops-github-pr" {
 
 module "PROD-IO-TLS-CERT-SERVICE-CONN" {
   depends_on = [azuredevops_project.project]
-  source     = "github.com/pagopa/azuredevops-tf-modules//azuredevops_serviceendpoint_federated?ref=v7.2.0"
+  source     = "github.com/pagopa/azuredevops-tf-modules//azuredevops_serviceendpoint_federated?ref=v9.2.1"
 
   project_id        = azuredevops_project.project.id
   name              = "io-p-developer-portal-tls-cert"

@@ -15,7 +15,6 @@ variable "tlscert-prod-api-io-selfcare-pagopa-it" {
       # common variables to all pipelines
       variables = {
         CERT_NAME_EXPIRE_SECONDS = "2592000" #30 days
-        KEY_VAULT_NAME           = "io-p-kv"
       }
       # common secret variables to all pipelines
       variables_secret = {
@@ -38,7 +37,7 @@ locals {
 }
 
 module "tlscert-prod-api-io-selfcare-pagopa-it-cert_az" {
-  source = "github.com/pagopa/azuredevops-tf-modules//azuredevops_build_definition_tls_cert_federated?ref=v7.2.0"
+  source = "github.com/pagopa/azuredevops-tf-modules//azuredevops_build_definition_tls_cert_federated?ref=v9.2.1"
   count  = var.tlscert-prod-api-io-selfcare-pagopa-it.pipeline.enable_tls_cert == true ? 1 : 0
 
   project_id                   = azuredevops_project.project.id
@@ -55,8 +54,8 @@ module "tlscert-prod-api-io-selfcare-pagopa-it-cert_az" {
   managed_identity_resource_group_name = local.identity_rg_name
 
   location                            = local.location
-  credential_key_vault_name           = local.key_vault_name
-  credential_key_vault_resource_group = local.key_vault_resource_group
+  credential_key_vault_name           = "io-p-kv"
+  credential_key_vault_resource_group = "io-p-sec-rg"
 
   variables = merge(
     var.tlscert-prod-api-io-selfcare-pagopa-it.pipeline.variables,
