@@ -52,9 +52,7 @@ locals {
   docker_registry_name_prod              = "${local.prefix}pcommonacr"
   docker_registry_fqdn_prod              = "${local.docker_registry_name_prod}.azurecr.io"
 
-  srv_endpoint_name_aks_weu_beta_prod   = "${local.prefix}-${local.domain}-aks-weu-beta"
   srv_endpoint_name_aks_weu_prod01_prod = "${local.prefix}-${local.domain}-aks-weu-prod01"
-  srv_endpoint_name_aks_weu_prod02_prod = "${local.prefix}-${local.domain}-aks-weu-prod02"
 
   #tfsec:ignore:general-secrets-no-plaintext-exposure
   #tfsec:ignore:GEN002

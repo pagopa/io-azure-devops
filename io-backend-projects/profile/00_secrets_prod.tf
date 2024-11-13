@@ -20,9 +20,6 @@ module "secrets_prod" {
   key_vault_name = local.prod_key_vault_name
 
   secrets = [
-    "${local.prefix}-p-weu-beta-aks-apiserver-url",
-    "${local.prefix}-p-weu-beta-aks-azure-devops-sa-cacrt",
-    "${local.prefix}-p-weu-beta-aks-azure-devops-sa-token",
     "${local.prefix}-p-weu-prod01-aks-apiserver-url",
     "${local.prefix}-p-weu-prod01-aks-azure-devops-sa-cacrt",
     "${local.prefix}-p-weu-prod01-aks-azure-devops-sa-token",
