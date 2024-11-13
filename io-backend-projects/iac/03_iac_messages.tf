@@ -19,13 +19,9 @@ variable "messages_iac" {
 locals {
   # global vars
   messages-iac-variables = {
-    tf_beta_aks_apiserver_url           = module.messages_prod_secrets.values["io-p-weu-beta-aks-apiserver-url"].value,
-    tf_beta_aks_azure_devops_sa_cacrt   = module.messages_prod_secrets.values["io-p-weu-beta-aks-azure-devops-sa-cacrt"].value,
-    tf_beta_aks_azure_devops_sa_token   = base64decode(module.messages_prod_secrets.values["io-p-weu-beta-aks-azure-devops-sa-token"].value),
     tf_prod01_aks_apiserver_url         = module.messages_prod_secrets.values["io-p-weu-prod01-aks-apiserver-url"].value,
     tf_prod01_aks_azure_devops_sa_cacrt = module.messages_prod_secrets.values["io-p-weu-prod01-aks-azure-devops-sa-cacrt"].value,
     tf_prod01_aks_azure_devops_sa_token = base64decode(module.messages_prod_secrets.values["io-p-weu-prod01-aks-azure-devops-sa-token"].value),
-    tf_aks_platform_beta_prod_name      = var.aks_platform_beta_prod_name
     tf_aks_platform_prod01_prod_name    = var.aks_platform_prod01_prod_name
   }
   # global secrets

@@ -28,7 +28,6 @@
 | <a name="module_letsencrypt_prod"></a> [letsencrypt\_prod](#module\_letsencrypt\_prod) | git::https://github.com/pagopa/terraform-azurerm-v3.git//letsencrypt_credential | v6.20.0 |
 | <a name="module_secrets_azdo"></a> [secrets\_azdo](#module\_secrets\_azdo) | github.com/pagopa/terraform-azurerm-v3//key_vault_secrets_query | v8.9.0 |
 | <a name="module_secrets_prod"></a> [secrets\_prod](#module\_secrets\_prod) | github.com/pagopa/terraform-azurerm-v3//key_vault_secrets_query | v8.9.0 |
-| <a name="module_tlscert-prod-weubeta-messages-internal-io-pagopa-it-cert_az"></a> [tlscert-prod-weubeta-messages-internal-io-pagopa-it-cert\_az](#module\_tlscert-prod-weubeta-messages-internal-io-pagopa-it-cert\_az) | github.com/pagopa/azuredevops-tf-modules//azuredevops_build_definition_tls_cert_federated | v7.2.0 |
 | <a name="module_tlscert-prod-weuprod01-messages-internal-io-pagopa-it-cert_az"></a> [tlscert-prod-weuprod01-messages-internal-io-pagopa-it-cert\_az](#module\_tlscert-prod-weuprod01-messages-internal-io-pagopa-it-cert\_az) | github.com/pagopa/azuredevops-tf-modules//azuredevops_build_definition_tls_cert_federated | v7.2.0 |
 
 ## Resources
@@ -39,7 +38,6 @@
 | [azuredevops_serviceendpoint_github.azure-devops-github-pr](https://registry.terraform.io/providers/microsoft/azuredevops/latest/docs/resources/serviceendpoint_github) | resource |
 | [azuredevops_serviceendpoint_github.azure-devops-github-ro](https://registry.terraform.io/providers/microsoft/azuredevops/latest/docs/resources/serviceendpoint_github) | resource |
 | [azuredevops_serviceendpoint_github.azure-devops-github-rw](https://registry.terraform.io/providers/microsoft/azuredevops/latest/docs/resources/serviceendpoint_github) | resource |
-| [azuredevops_serviceendpoint_kubernetes.aks-weu-beta](https://registry.terraform.io/providers/microsoft/azuredevops/latest/docs/resources/serviceendpoint_kubernetes) | resource |
 | [azuredevops_serviceendpoint_kubernetes.aks-weu-prod01](https://registry.terraform.io/providers/microsoft/azuredevops/latest/docs/resources/serviceendpoint_kubernetes) | resource |
 | [azurerm_key_vault_access_policy.PROD-TLS-AZDO-CERT-SERVICE-CONN_kv_prod](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault_access_policy) | resource |
 | [azurerm_role_assignment.appinsights_component_contributor_prod](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
@@ -57,7 +55,6 @@
 | <a name="input_io-premium-reminder-ms"></a> [io-premium-reminder-ms](#input\_io-premium-reminder-ms) | n/a | `map` | <pre>{<br>  "pipeline": {<br>    "enable_code_review": true,<br>    "enable_deploy": true<br>  },<br>  "repository": {<br>    "branch_name": "refs/heads/master",<br>    "name": "io-premium-reminder-ms",<br>    "organization": "pagopa",<br>    "pipelines_path": ".devops",<br>    "yml_prefix_name": null<br>  }<br>}</pre> | no |
 | <a name="input_prod_subscription_name"></a> [prod\_subscription\_name](#input\_prod\_subscription\_name) | PROD Subscription name | `string` | n/a | yes |
 | <a name="input_project_name_prefix"></a> [project\_name\_prefix](#input\_project\_name\_prefix) | Project name prefix (e.g. userregistry) | `string` | n/a | yes |
-| <a name="input_tlscert-prod-weubeta-messages-internal-io-pagopa-it"></a> [tlscert-prod-weubeta-messages-internal-io-pagopa-it](#input\_tlscert-prod-weubeta-messages-internal-io-pagopa-it) | n/a | `map` | <pre>{<br>  "pipeline": {<br>    "dns_record_name": "weubeta.messages.internal",<br>    "dns_zone_name": "io.pagopa.it",<br>    "enable_tls_cert": true,<br>    "path": "TLS-Certificates\\PROD",<br>    "variables": {<br>      "CERT_NAME_EXPIRE_SECONDS": "2592000"<br>    },<br>    "variables_secret": {}<br>  },<br>  "repository": {<br>    "branch_name": "refs/heads/master",<br>    "name": "le-azure-acme-tiny",<br>    "organization": "pagopa",<br>    "pipelines_path": "."<br>  }<br>}</pre> | no |
 | <a name="input_tlscert-prod-weuprod01-messages-internal-io-pagopa-it"></a> [tlscert-prod-weuprod01-messages-internal-io-pagopa-it](#input\_tlscert-prod-weuprod01-messages-internal-io-pagopa-it) | n/a | `map` | <pre>{<br>  "pipeline": {<br>    "dns_record_name": "weuprod01.messages.internal",<br>    "dns_zone_name": "io.pagopa.it",<br>    "enable_tls_cert": true,<br>    "path": "TLS-Certificates\\PROD",<br>    "variables": {<br>      "CERT_NAME_EXPIRE_SECONDS": "2592000"<br>    },<br>    "variables_secret": {}<br>  },<br>  "repository": {<br>    "branch_name": "refs/heads/master",<br>    "name": "le-azure-acme-tiny",<br>    "organization": "pagopa",<br>    "pipelines_path": "."<br>  }<br>}</pre> | no |
 
 ## Outputs

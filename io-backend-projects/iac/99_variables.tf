@@ -3,11 +3,6 @@ variable "iac-project-name" {
   description = "Name of the project on AZDO"
 }
 
-variable "aks_platform_beta_prod_name" {
-  type        = string
-  description = "Name of the aks plarfom BETA"
-}
-
 variable "aks_platform_prod01_prod_name" {
   type        = string
   description = "Name of the aks plarfom PROD01"

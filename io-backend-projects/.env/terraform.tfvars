@@ -6,5 +6,4 @@ project_name_prefix = "io-backend"
 
 iac-project-name = "io-platform-iac-projects"
 
-aks_platform_beta_prod_name   = "io-p-weu-beta-aks"
 aks_platform_prod01_prod_name = "io-p-weu-prod01-aks"
