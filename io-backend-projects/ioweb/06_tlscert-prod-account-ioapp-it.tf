@@ -35,11 +35,11 @@ locals {
       module.PROD-TLS-AZDO-CERT-SERVICE-CONN.service_endpoint_id,
     ]
   }
-  tlscert-prod-ioapp-it-variables = {
+  tlscert-prod-account-ioapp-it-variables = {
     KEY_VAULT_SERVICE_CONNECTION = module.PROD-TLS-AZDO-CERT-SERVICE-CONN.service_endpoint_name,
     KEY_VAULT_NAME               = local.prod_key_vault_name
   }
-  tlscert-prod-ioapp-it-variables_secret = {
+  tlscert-prod-account-ioapp-it-variables_secret = {
   }
 }
 
