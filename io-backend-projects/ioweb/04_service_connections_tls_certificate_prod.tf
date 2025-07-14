@@ -13,12 +13,26 @@ module "PROD-TLS-AZDO-CERT-SERVICE-CONN" {
   resource_group_name = local.identity_rg_name
 }
 
-resource "azurerm_key_vault_access_policy" "PROD-TLS-AZDO-CERT-SERVICE-CONN_kv_prod" {
-  key_vault_id = data.azurerm_key_vault.kv_prod.id
-  tenant_id    = data.azurerm_client_config.current.tenant_id
-  object_id    = module.PROD-TLS-AZDO-CERT-SERVICE-CONN.service_principal_object_id
+# resource "azurerm_key_vault_access_policy" "PROD-TLS-AZDO-CERT-SERVICE-CONN_kv_prod" {
+#   key_vault_id = data.azurerm_key_vault.kv_prod.id
+#   tenant_id    = data.azurerm_client_config.current.tenant_id
+#   object_id    = module.PROD-TLS-AZDO-CERT-SERVICE-CONN.service_principal_object_id
 
-  certificate_permissions = ["Get", "Import"]
+#   certificate_permissions = ["Get", "Import"]
+# }
+
+removed {
+  from = azurerm_key_vault_access_policy.PROD-TLS-AZDO-CERT-SERVICE-CONN_kv_prod
+  lifecycle {
+    destroy = false
+  }
+}
+
+resource "azurerm_role_assignment" "PROD-TLS-AZDO-CERT-SERVICE-CONN_kv_prod" {
+  scope                = data.azurerm_key_vault.kv_prod.id
+  role_definition_name = "Key Vault Certificates Officer"
+  principal_id         = module.PROD-TLS-AZDO-CERT-SERVICE-CONN.service_principal_object_id
+  description          = "Allow DevOps piepline to access KeyVault certificates"
 }
 
 # create let's encrypt credential used to create SSL certificates
