@@ -29,15 +29,15 @@ locals {
     subscription_id                     = data.azurerm_subscription.current.subscription_id
     dns_zone_resource_group             = local.prod_dns_zone_resource_group
     credential_subcription              = var.prod_subscription_name
-    credential_key_vault_name           = local.prod_key_vault_name
-    credential_key_vault_resource_group = local.prod_key_vault_resource_group
+    credential_key_vault_name           = data.azurerm_key_vault.ioweb_legacy.name
+    credential_key_vault_resource_group = data.azurerm_key_vault.ioweb_legacy.resource_group_name
     service_connection_ids_authorization = [
       module.PROD-TLS-AZDO-CERT-SERVICE-CONN.service_endpoint_id,
     ]
   }
   tlscert-prod-ioapp-it-variables = {
     KEY_VAULT_SERVICE_CONNECTION = module.PROD-TLS-AZDO-CERT-SERVICE-CONN.service_endpoint_name,
-    KEY_VAULT_NAME               = local.prod_key_vault_name
+    KEY_VAULT_NAME               = data.azurerm_key_vault.ioweb_legacy.name
   }
   tlscert-prod-ioapp-it-variables_secret = {
   }
