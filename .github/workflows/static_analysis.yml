@@ -16,11 +16,8 @@ jobs:
       - name: init_terraform_folders
         env:
           FOLDERS: >
+            io-backend-projects/core
             io-backend-projects/iac
-            io-backend-projects/messages
-            io-backend-projects/payments
-            io-backend-projects/profile
-            io-backend-projects/ioweb
             io-developer-portal-projects
         run: |
           pids=()
